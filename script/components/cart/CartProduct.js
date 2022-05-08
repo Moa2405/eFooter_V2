@@ -64,7 +64,7 @@ const CartProduct = (itemsInCart) => {
             const cartList = localStorage.getData(storageKeys.CAR_KEY);
             deleteProductFromCartBtn.forEach((item) => {
                 item.onclick = (event) => {
-                    CartProduct(deleteItemFromList(cartList, cartKey, event));
+                    CartProduct(deleteItemFromList(cartList, storageKeys.CAR_KEY, event));
                     handleCartTotalAmount();
                     updateCartIcon();
                 };
