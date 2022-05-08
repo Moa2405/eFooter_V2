@@ -1,0 +1,5 @@
+@import "./partials/variables";
+
+.hero {
+    background: getGradients(primaryBackgroundGradient);
+}
