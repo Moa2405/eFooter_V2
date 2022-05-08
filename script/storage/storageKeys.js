@@ -1,12 +1,12 @@
 const storageKeys = {
-    ALL_PRODUCTS_KEY: "JASHDJNJ32984935IEUJND",
-    FEATURED_KEY: "KMDSANCJDECFF7485647654HUD",
-    HERO_KEY: "KSNCJKEDND347673643UH",
-    FAV_KEY: "NDCKJDENF487658HJDI83",
-    CAR_KEY: "MKDCKEND83776483HD4877",
-    CART_TOTAL_AMOUNT_KEY: "KMCNKEND38745843JDI3",
-    TOKEN_KEY: "MCKDMDF387483748J3DI",
-    USER_KEY: "DNKNCIUE74384783JEI"
+    ALL_PRODUCTS_KEY: "products",
+    FEATURED_KEY: "featured-products",
+    HERO_KEY: "hero-section",
+    FAV_KEY: "fav-products",
+    CART_KEY: "cart-products",
+    CART_TOTAL_AMOUNT_KEY: "cart-total",
+    TOKEN_KEY: "token",
+    USER_KEY: "user"
 }
 
 export default storageKeys;

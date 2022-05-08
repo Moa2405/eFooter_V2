@@ -1,7 +1,7 @@
 import apiUrls from "../../utils/api/urls.js";
 import * as localStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
-import handleFavoritesList from "../../utils/eventListeners/handleFavoritesBtn.js";
+import handleFavoritesBtn from "../../utils/eventListeners/handleFavoritesBtn.js";
 
 const ProductCard = (products) => {
 
@@ -43,7 +43,8 @@ const ProductCard = (products) => {
       ;
   });
   const favBtn = document.querySelectorAll(".favorites__btn");
-  handleFavoritesList(favBtn);
+
+  handleFavoritesBtn(favBtn);
 }
 
 export default ProductCard;

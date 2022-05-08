@@ -1,0 +1,47 @@
+.admin-accordion {
+    i {
+        font-size: 1.5em;
+    }
+
+    .accordion-item {
+        border: none;
+    }
+
+    .accordion__item_name {
+        min-width: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .accordion-button {
+        color: black;
+        background-color: transparent;
+        border: none !important;
+        outline: none !important;
+        border-bottom: 1px solid getColors(secondary-500) !important;
+    }
+
+    .accordion-button:focus {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: black !important;
+        border-bottom: 1px solid getColors(secondary-500) !important;
+    }
+
+    .accordion-button::after {
+        color: black;
+    }
+
+    button {
+        border: none !important;
+        outline: none !important;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .admin-accordion {
+        display: none;
+    }
+}

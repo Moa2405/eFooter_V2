@@ -1,0 +1,78 @@
+.admin-accordion i {
+  font-size: 1.5em;
+}
+
+.admin-accordion .accordion-item {
+  border: none;
+}
+
+.admin-accordion .accordion__item_name {
+  min-width: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-accordion .accordion-button {
+  color: black;
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+  border-bottom: 1px solid getColors(secondary-500) !important;
+}
+
+.admin-accordion .accordion-button:focus {
+  border: none !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  color: black !important;
+  border-bottom: 1px solid getColors(secondary-500) !important;
+}
+
+.admin-accordion .accordion-button::after {
+  color: black;
+}
+
+.admin-accordion button {
+  border: none !important;
+  outline: none !important;
+}
+
+@media screen and (min-width: 560px) {
+  .admin-accordion {
+    display: none;
+  }
+}
+
+.admin-table {
+  display: none;
+}
+
+.admin-table i {
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.admin-table .table__description {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-table tr {
+  cursor: pointer;
+}
+
+.admin-table .table__img:hover {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+
+@media screen and (min-width: 560px) {
+  .admin-table {
+    display: block;
+  }
+}
+/*# sourceMappingURL=admin.css.map */

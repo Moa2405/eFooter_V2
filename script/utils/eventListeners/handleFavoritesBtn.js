@@ -31,7 +31,7 @@ const handleFavoritesBtn = (items) => {
 
                 localStorage.saveData(storageKeys.FAV_KEY, currentDataList);
 
-                const newData = localStorage.saveData(storageKeys.FAV_KEY)
+                const newData = localStorage.getData(storageKeys.FAV_KEY)
                 console.log(newData)
 
             } else {

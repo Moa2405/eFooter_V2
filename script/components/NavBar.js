@@ -1,7 +1,6 @@
 import storageKeys from "../storage/storageKeys.js";
 import handelLogout from "../utils/handelLogOut.js";
-import { getData } from "../storage/localStorage.js";
-import handleNavCartIcon from "../utils/handleNavCartIcon.js";
+import * as localStorage from "../storage/localStorage.js";
 import updateCartIcon from "../utils/updateCartIcon.js";
 
 
@@ -11,7 +10,7 @@ const NavBar = () => {
 
   const container = document.querySelector(".navbar-container");
 
-  const loggedIn = getData(storageKeys.userKey);
+  const loggedIn = localStorage.getData(storageKeys.USER_KEY);
 
   let homeLink = `<a class="nav-link ${pathname === "/" ? "active" : ""}" 
       aria-current="page" href="/">Home</a>`;
@@ -24,18 +23,18 @@ const NavBar = () => {
     }" href="favorites.html"><i class="bi bi-heart"></i></a>`
     : "";
 
-  let loginLink = !loggedIn.username
+  let signInLink = !loggedIn.username
     ? `<a class="nav-link ${pathname === "/login.html" ? "active" : ""
-    }" href="login.html">Login</a>`
+    }" href="sign-in.html">Sign in</a>`
     : "";
 
   let signUpLink = !loggedIn.username
     ? `<a class="nav-link ${pathname === "/sign-up.html" ? "active" : ""
-    }" href="/sign-up.html">Sign up</a>`
+    }" href="sign-up.html">Sign up</a>`
     : "";
 
-  let logoutLink = loggedIn.username
-    ? `<span class="logout-link nav-link" style="cursor: pointer;">Logout<span>`
+  let logOutLink = loggedIn.username
+    ? `<span class="logout-link nav-link" style="cursor: pointer;">Log out<span>`
     : "";
 
   let welcomeLink = loggedIn.username
@@ -76,26 +75,26 @@ const NavBar = () => {
                       <li class="nav-item">
                         ${productsLink}
                       </li>
-                      </ul>
+                    </ul>
                       <ul class="navbar-nav mb-2 mb-lg-0">
-                      <li class="nav-item">
-                      ${logoutLink}
-                      </li>
-                      <li class="nav-item">
-                      ${signUpLink}
-                      </li>
-                      <li class="nav-item">
-                      ${loginLink}
-                      </li>
-                      <li class="nav-item">
-                      <li class="nav-item">
-                        ${favoritesLink}
-                      </li>
-                        ${welcomeLink}
-                      </li>
-                      <li class="nav-item">
-                        ${cartLink}
-                      </li> 
+                        <li class="nav-item">
+                          ${logOutLink}
+                        </li>
+                        <li class="nav-item">
+                          ${signUpLink}
+                        </li>
+                        <li class="nav-item">
+                          ${signInLink}
+                        </li>
+                        <li class="nav-item">
+                        <li class="nav-item">
+                          ${favoritesLink}
+                        </li>
+                          ${welcomeLink}
+                        </li>
+                        <li class="nav-item">
+                          ${cartLink}
+                        </li> 
                     </ul>
                   </div>
                 </nav>

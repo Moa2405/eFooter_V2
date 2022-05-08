@@ -1,0 +1,56 @@
+import * as localStorage from "./storage/localStorage.js";
+import storageKeys from "./storage/storageKeys.js";
+import handelLogin from "./utils/handleSignUpSignIn.js";
+import DisplayMessage from "./components/DisplayMessage.js";
+import NavBar from "./components/NavBar.js";
+import Footer from "./components/Footer.js";
+import apiUrls from "./utils/api/urls.js";
+import showHidePassword from "./utils/eventListeners/hideShowPassword.js";
+
+const email = document.querySelector("#email");
+const password = document.querySelector("#password");
+const checkboxPassword = document.querySelector("#checkbox-password");
+const messageContainer = document.querySelector(".message-container");
+
+const form = document.querySelector("#login-form");
+
+NavBar();
+Footer()
+
+checkboxPassword.addEventListener("change", showHidePassword);
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    messageContainer.innerHTML = "";
+
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+
+    if (emailValue.length === 0 || passwordValue.length === 0) {
+        return DisplayMessage("danger", "Invalid values", ".message-container");
+    }
+
+    login(emailValue, passwordValue);
+});
+
+const login = async (email, password) => {
+    const data = JSON.stringify({ identifier: email, password: password });
+
+    const url = apiUrls.baseUrl + apiUrls.loginUrl;
+
+    const loggedInUser = await handelLogin(data, url);
+
+    if (!loggedInUser.user) {
+        console.warn(loggedInUser);
+        return DisplayMessage(
+            "danger",
+            `${loggedInUser.message[0].messages[0].message}`,
+            ".message-container"
+        );
+    } else {
+        localStorage.saveData(storageKeys.TOKEN_KEY, loggedInUser.jwt);
+        localStorage.saveData(storageKeys.USER_KEY, loggedInUser.user);
+        window.location.href = "/";
+    }
+};

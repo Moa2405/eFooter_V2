@@ -54,21 +54,21 @@ const CartProduct = (itemsInCart) => {
                     </div>
                 </li>`
 
-            const amountOfItem = document.querySelectorAll("select");
-            const deleteProductFromCartBtn = document.querySelectorAll(".cart__product_delete-btn");
+            const amountOfItem = document.querySelector("select");
+            const deleteProductFromCartBtn = document.querySelector(".cart__product_delete-btn");
+            console.log(deleteProductFromCartBtn)
 
-            amountOfItem.forEach((item) => {
-                item.onchange = updateAmountOfItemInCart;
-            })
+            amountOfItem.onchange = updateAmountOfItemInCart;
 
-            const cartList = localStorage.getData(storageKeys.CAR_KEY);
-            deleteProductFromCartBtn.forEach((item) => {
-                item.onclick = (event) => {
-                    CartProduct(deleteItemFromList(cartList, storageKeys.CAR_KEY, event));
-                    handleCartTotalAmount();
-                    updateCartIcon();
-                };
-            })
+            const cartList = localStorage.getData(storageKeys.CART_KEY);
+
+            deleteProductFromCartBtn.onclick = (event) => {
+                console.log(event)
+                CartProduct(deleteItemFromList(cartList, storageKeys.CART_KEY, event));
+                handleCartTotalAmount();
+                updateCartIcon();
+            };
+
         })
     } else {
         DisplayMessage(

@@ -15,14 +15,10 @@ const handleCartTotalAmount = () => {
             arrayOfAmounts.push(item.totalAmount)
         });
 
-        console.log(arrayOfAmounts)
-
         const initialReduceValue = 0;
         const totalAmount = arrayOfAmounts.reduce(
             (previousValue, currentValue) => previousValue + currentValue, initialReduceValue
         );
-
-        console.log(totalAmount);
 
         CartTotalAmount(totalAmount)
     } else {
