@@ -1,10 +1,10 @@
 import * as localStorage from "../storage/localStorage.js";
 
-const deleteItemFromList = (key, event) => {
+const deleteItemFromList = (data, key, event) => {
 
     const id = parseInt(event.target.dataset.id);
 
-    const dataList = localStorage.getData(key);
+    const dataList = data;
 
     const newList = dataList.filter((item) => item.id !== id);
 
