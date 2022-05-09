@@ -10,18 +10,3 @@ const storageKeys = {
 }
 
 export default storageKeys;
-
-// export const featuredKey = "featuredProducts";
-
-// export const favKey = "favProducts";
-
-// export const allProductsKey = "allProducts";
-
-// export const cartKey = "cartKay";
-
-// export const cartTotalAmountKey = "cartTotalAmount";
-
-// export const tokenKey = "token";
-
-// export const userKey = "user";
-

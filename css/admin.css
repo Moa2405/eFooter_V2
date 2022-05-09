@@ -39,7 +39,7 @@
   outline: none !important;
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 768px) {
   .admin-accordion {
     display: none;
   }
@@ -70,7 +70,7 @@
           transform: scale(3);
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 768px) {
   .admin-table {
     display: block;
   }

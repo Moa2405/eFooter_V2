@@ -11,8 +11,6 @@ const handleFavoritesBtn = (items) => {
             item.classList.toggle("text-primary");
 
             item.classList.toggle("bi-heart");
-            item.classList.toggle("text-dark");
-
 
             const allData = localStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 

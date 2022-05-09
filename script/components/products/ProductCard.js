@@ -28,7 +28,7 @@ const ProductCard = (products) => {
     productsContainer.innerHTML += `
           <div class="col mb-5 position-relative bg-white h-100">
             <article class="card h-100 position-relative">
-              <button type="button" class="favorites__btn_container btn btn-light shadow rounded-circle" data-id=${id}>
+              <button type="button" class="favorites__btn_container btn btn-light shadow-sm rounded-circle" data-id=${id}>
                   <i class="favorites__btn top-0 start-50 translate-middle ${btnCssClass}" data-id=${id}></i>
               </button>
               <a href="product-detail.html?id=${id}" class="shadow">
