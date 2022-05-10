@@ -15,30 +15,27 @@
     <div class="navbar-container container-fluid"></div>
     <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
         <div class="container-lg bg-light">
-            <form class="row g-3 px-md-3 bg-secondary" style="max-width: 768px;">
-                <div class="col-md-6">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name">
+            <form id="create" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <label for="name" class="input-group-text">Title</label>
+                    <input type="text" class="form-control" id="name" name="name" required />
                 </div>
-                <div class="col-sm-6">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="price">
+
+                <div class="input-group mb-3">
+                    <label for="description" class="input-group-text">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" />
                 </div>
-                <div class="col-sm-6">
-                    <label for="decription" class="form-label">Description</label>
-                    <textarea class="form-control" id="decription" rows="3"></textarea>
+
+                <div class="input-group mb-3">
+                    <label for="price" class="input-group-text">Price</label>
+                    <input type="number" class="form-control" id="price" name="price" />
                 </div>
-                <div class="col-sm-6">
-                    <label class="form-label" for="image">Upload Image</label>
-                    <input type="file" class="bg-light p-2 rounded-2" id="image" accept=".jpg,.png,">
+
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="image" name="files.image" />
                 </div>
-                <div class="col-12">
-                    <input class="form-check-input" type="checkbox" value="" id="featured">
-                    <label class="form-check-label" for="featured">Featured</label>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary mb-3">Confirm</button>
-                </div>
+
+                <button type="submit" class="btn btn-success">Create Example</button>
             </form>
         </div>
     </main>

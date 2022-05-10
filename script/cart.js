@@ -10,7 +10,7 @@ NavBar()
 Footer()
 
 const cart = () => {
-    const itemsInCart = localStorage.getData(storageKeys.CAR_KEY);
+    const itemsInCart = localStorage.getData(storageKeys.CART_KEY);
 
     CartProduct(itemsInCart);
     handleCartTotalAmount()

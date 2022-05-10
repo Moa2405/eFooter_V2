@@ -13,7 +13,6 @@ const handleAddItemToCart = (quantity, btn) => {
         const id = parseInt(event.target.dataset.id);
         const amountOfItem = parseInt(quantity.value);
 
-
         const products = localStorage.getData(storageKeys.ALL_PRODUCTS_KEY)
 
         const targetProduct = products.filter(
@@ -31,7 +30,7 @@ const handleAddItemToCart = (quantity, btn) => {
 
         console.log(newObjectToSaveInCart)
 
-        const currentCart = localStorage.getData(storageKeys.CAR_KEY);
+        const currentCart = localStorage.getData(storageKeys.CART_KEY);
 
         const doseItemExistInCart = currentCart.find(
             (item) => item.id === id
@@ -40,9 +39,9 @@ const handleAddItemToCart = (quantity, btn) => {
         if (!doseItemExistInCart) {
             currentCart.push(newObjectToSaveInCart);
 
-            localStorage.saveData(storageKeys.CAR_KEY, currentCart);
+            localStorage.saveData(storageKeys.CART_KEY, currentCart);
 
-            const newCart = localStorage.getData(storageKeys.CAR_KEY);
+            const newCart = localStorage.getData(storageKeys.CART_KEY);
 
             updateCartIcon()
 

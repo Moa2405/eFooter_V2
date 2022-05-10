@@ -5,7 +5,7 @@ import CartTotalAmount from "../components/cart/CartTotalAmount.js";
 
 const handleCartTotalAmount = () => {
 
-    const itemsInCart = localStorage.getData(storageKeys.CAR_KEY);
+    const itemsInCart = localStorage.getData(storageKeys.CART_KEY);
 
     let arrayOfAmounts = [];
 
@@ -25,9 +25,6 @@ const handleCartTotalAmount = () => {
 
         CartTotalAmount(0)
     }
-
-
-
 }
 
 export default handleCartTotalAmount;

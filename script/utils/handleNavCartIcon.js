@@ -4,7 +4,7 @@ import * as localStorage from "../storage/localStorage.js";
 
 const handleNavCartIcon = () => {
     const cartCount = document.querySelector(".navbar__cart_count");
-    const itemsInCart = localStorage.getData(storageKeys.cartKey);
+    const itemsInCart = localStorage.getData(storageKeys.CART_KEY);
 
     console.log(cartCount)
 

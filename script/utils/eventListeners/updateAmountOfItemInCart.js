@@ -7,7 +7,7 @@ const updateAmountOfItemInCart = (event) => {
     const value = parseInt(event.target.value);
     const id = parseInt(event.target.dataset.id);
 
-    const itemsInCart = localStorage.getData(storageKeys.CAR_KEY)
+    const itemsInCart = localStorage.getData(storageKeys.CART_KEY)
 
     const targetItem = itemsInCart.findIndex((item) => item.id === id);
 
@@ -18,9 +18,9 @@ const updateAmountOfItemInCart = (event) => {
     itemsInCart[targetItem].totalAmount = newAmount;
     itemsInCart[targetItem].quantity = value;
 
-    localStorage.saveData(storageKeys.CAR_KEY, itemsInCart);
+    localStorage.saveData(storageKeys.CART_KEY, itemsInCart);
 
-    const newCart = localStorage.getData(storageKeys.CAR_KEY);
+    const newCart = localStorage.getData(storageKeys.CART_KEY);
     console.log(newCart)
 
     CartProduct(newCart)

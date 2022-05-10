@@ -4,7 +4,7 @@ import storageKeys from "../storage/storageKeys.js";
 
 const updateCartIcon = () => {
     const cartCount = document.querySelector(".navbar__cart_count");
-    const itemsInCart = localStorage.getData(storageKeys.CAR_KEY);
+    const itemsInCart = localStorage.getData(storageKeys.CART_KEY);
 
     if (itemsInCart.length) {
         cartCount.classList.remove("d-none");

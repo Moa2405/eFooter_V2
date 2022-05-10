@@ -53,23 +53,28 @@ const CartProduct = (itemsInCart) => {
                         </div>
                     </div>
                 </li>`
+                ;
+        });
 
-            const amountOfItem = document.querySelector("select");
-            const deleteProductFromCartBtn = document.querySelector(".cart__product_delete-btn");
-            console.log(deleteProductFromCartBtn)
+        const amountOfItem = document.querySelectorAll("select");
+        const deleteProductFromCartBtn = document.querySelectorAll(".cart__product_delete-btn");
+        console.log(deleteProductFromCartBtn)
 
-            amountOfItem.onchange = updateAmountOfItemInCart;
+        amountOfItem.forEach((e) => {
+            e.onchange = updateAmountOfItemInCart;
+        })
 
-            const cartList = localStorage.getData(storageKeys.CART_KEY);
+        const cartList = localStorage.getData(storageKeys.CART_KEY);
 
-            deleteProductFromCartBtn.onclick = (event) => {
+        deleteProductFromCartBtn.forEach((btn) => {
+            btn.onclick = (event) => {
                 console.log(event)
                 CartProduct(deleteItemFromList(cartList, storageKeys.CART_KEY, event));
                 handleCartTotalAmount();
                 updateCartIcon();
             };
-
         })
+
     } else {
         DisplayMessage(
             "warning",
@@ -77,9 +82,6 @@ const CartProduct = (itemsInCart) => {
             ".cart__products_container"
         );
     }
-
-
-
 }
 
 export default CartProduct;
