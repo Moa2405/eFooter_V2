@@ -1,6 +1,6 @@
 import * as localStorage from "../storage/localStorage.js";
 
-const deleteItemFromList = (data, key, event) => {
+const deleteValueFromArr = (data, key, event) => {
 
     const id = parseInt(event.target.dataset.id);
 
@@ -13,4 +13,4 @@ const deleteItemFromList = (data, key, event) => {
     return newList;
 }
 
-export default deleteItemFromList;
+export default deleteValueFromArr;

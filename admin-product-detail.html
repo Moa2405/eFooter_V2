@@ -15,27 +15,37 @@
     <div class="navbar-container container-fluid"></div>
     <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
         <div class="container-lg bg-light">
-            <form id="create" enctype="multipart/form-data">
-                <div class="input-group mb-3">
-                    <label for="name" class="input-group-text">Title</label>
+            <form id="form" enctype="multipart/form-data" class="d-flex flex-column gap-4">
+                <div class="">
+                    <label for="name" class="form-label">Title</label>
                     <input type="text" class="form-control" id="name" name="name" required />
                 </div>
 
-                <div class="input-group mb-3">
-                    <label for="description" class="input-group-text">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" />
+                <div class="">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" class="form-control" id="description" name="description" rows="4"></textarea>
                 </div>
 
-                <div class="input-group mb-3">
-                    <label for="price" class="input-group-text">Price</label>
+                <div class="">
+                    <label for="price" class="form-label">Price</label>
                     <input type="number" class="form-control" id="price" name="price" />
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="">
+                    <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" name="files.image" />
                 </div>
 
-                <button type="submit" class="btn btn-success">Create Example</button>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="categories" value="1" id="featured">
+                    <label class="form-check-label" for="featured">
+                        Featured
+                    </label>
+                </div>
+
+                <div class="">
+                    <button type="submit" class="btn btn-success">Create Example</button>
+                </div>
             </form>
         </div>
     </main>

@@ -15,7 +15,28 @@
     <div class="navbar-container container-fluid"></div>
     <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
         <div class="container-lg">
-            <div class="product-detail__container container"></div>
+            <div class="product-detail__container container">
+
+                <div class="product-detail__header_container container-lg"></div>
+
+                <div class="container-lg row row-cols-1 row-cols-sm-2 align-items-center bg-light p-1">
+
+                    <div class="product-detail__img_container bg-white"></div>
+
+
+                    <div class="product-detail__attributes_container d-flex flex-column gap-2">
+                        <div class="w-25">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" value="1">
+                        </div>
+                        <div id="message"></div>
+                        <div class="product-detail__cart_btn">
+                            <button type="button" class="btn btn-primary order-10" id="add-to-cart__btn">Add to
+                                cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <footer class="container-fluid mt-auto bg-primary text-white"></footer>

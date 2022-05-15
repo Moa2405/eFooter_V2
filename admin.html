@@ -12,18 +12,22 @@
 </head>
 
 <body class="d-flex flex-column h-100">
+    <div class="loading__overlay"></div>
     <div class="navbar-container container-fluid"></div>
     <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
         <div class="container-lg d-flex flex-column gap-5">
             <section class="container">
                 <h1>Admin panel</h1>
             </section>
-            <section class="container d-flex justify-content-between">
+            <section class="container d-flex flex-column flex-sm-row justify-content-between gap-3">
                 <h2>Products</h2>
-                <a href="/admin-product-detail.html?id=create" type="button"
-                    class="add-product-btn btn btn-primary pt-2 bg-primary text-white rounded-2 shadow-lg"
-                    data-id="create">Add
-                    product</a>
+                <div>
+                    <a href="/admin-product-detail.html?typeOfForm=create" type="button"
+                        class="add-product-btn btn btn-primary pt-2 bg-primary text-white rounded-2 shadow-lg"
+                        data-id="create">
+                        Add product
+                    </a>
+                </div>
             </section>
             <section class="admin-table container">
             </section>

@@ -1,3 +1,4 @@
+import deleteProduct from "../../utils/admin/deleteProduct.js";
 import apiUrls from "../../utils/api/urls.js";
 
 const AdminTable = async (products) => {
@@ -27,10 +28,25 @@ const AdminTable = async (products) => {
                 <td scope="row">${product.id}</td>
                 <td>${product.attributes.name}</td>
                 <td class="table__description">${product.attributes.description}</td>
-                <td><img class="table__img rounded-circle" src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" alt="${product.attributes.name}" width="32" height="32"></td>
-                <td><i class="bi bi-pencil-square" data-id=${product.id}></i></td>
+                <td>
+                    <img class="table__img rounded-circle" 
+                        src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
+                        alt="${product.attributes.name}" 
+                        width="32" height="32">
+                </td>
+                <td>
+                    <a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}">
+                        <i class="bi bi-pencil-square" data-id=${product.id}></i>
+                    </a>
+                </td>
                 <td><i class="bi bi-trash" data-id=${product.id} style="color: red;"></i></td>
             </tr>`
+    })
+
+    const deleteProductBtn = document.querySelectorAll(".bi-trash");
+
+    deleteProductBtn.forEach((btn) => {
+        btn.onclick = (event) => deleteProduct(event)
     })
 }
 

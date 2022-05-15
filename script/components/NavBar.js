@@ -2,10 +2,18 @@ import storageKeys from "../storage/storageKeys.js";
 import handelLogout from "../utils/handelLogOut.js";
 import * as localStorage from "../storage/localStorage.js";
 import updateCartIcon from "../utils/updateCartIcon.js";
+import Search from "./search/Search.js";
+import handleSearch from "../utils/eventListeners/handleSearch.js";
 
 
 
 const NavBar = () => {
+
+  window.onload = () => {
+    const searchForm = document.querySelector(".search-container")
+    searchForm.onsubmit = handleSearch;
+  }
+
   const { pathname } = document.location;
 
   const container = document.querySelector(".navbar-container");
@@ -47,65 +55,79 @@ const NavBar = () => {
     : "";
 
   let cartLink = `
-        <div class="cart_container" style="max-width: 20px">
-          <a class="nav-link ${pathname === "cart.html" ? "active" : ""
-    }" href="cart.html">
-            <i class="bi bi-cart3"></i>
+        <div class="cart_container">
+          <a class="nav-link ${pathname === "cart.html" ? "active" : ""}" href="cart.html">
+            <i class="nav-item bi bi-cart3"></i>
+            <div class="cart__count_container d-none bg-primary rounded-circle text-white">
+              <span class="cart__count"></span>
+            </div>
           </a>
-          <div class="navbar__cart_count d-none bg-primary rounded-circle text-white"></div>
         </div>`
 
   container.innerHTML = `
-              <div class="container-lg">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                  <div class="d-flex">
-                    <a class="navbar-brand" href="#">eFooter</a>
-                  </div>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        ${homeLink}
-                      </li>
-                      <li class="nav-item">
-                        ${adminLink}
-                      </li>
-                      <li class="nav-item">
-                        ${productsLink}
-                      </li>
-                    </ul>
-                      <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          ${logOutLink}
-                        </li>
-                        <li class="nav-item">
-                          ${signUpLink}
-                        </li>
-                        <li class="nav-item">
-                          ${signInLink}
-                        </li>
-                        <li class="nav-item">
-                        <li class="nav-item">
-                          ${favoritesLink}
-                        </li>
-                          ${welcomeLink}
-                        </li>
-                        <li class="nav-item">
-                          ${cartLink}
-                        </li> 
-                    </ul>
-                  </div>
-                </nav>
-              </div> `;
+   
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-lg d-flex justify-content-between">
+          <a class="navbar-brand" href="/index.html">eFooter</a>
+          <button class="navbar-toggler" type="button" 
+                         data-bs-toggle="collapse" 
+                         data-bs-target="#navbarSupportedContent" 
+                         aria-controls="navbarSupportedContent" 
+                         aria-expanded="false" 
+                         aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+              <li class="nav-item">
+                ${homeLink}
+              </li>
+              <li class="nav-item">
+                ${productsLink}
+              </li>
+              <li class="nav-item">
+                ${adminLink}
+              </li>
+              <li class="nav-item">
+                ${logOutLink}
+              </li>
+              <li class="nav-item">
+                ${signUpLink}
+              </li>
+              <li class="nav-item">
+                ${signInLink}
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center g-3">
+              <form class="search-container 
+                mx-lg-4
+                d-flex 
+                justify-content-around 
+                align-items-center 
+                py-0 px-2 
+                bg-light 
+                rounded-pill">           
+              </form>
+              <li class="nav-item">
+                ${favoritesLink}
+              </li>
+              <li class="nav-item">
+                ${cartLink}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>`
+    ;
 
   const logoutLinkBtn = document.querySelector(".logout-link");
   if (logoutLinkBtn) {
     logoutLinkBtn.addEventListener("click", handelLogout);
   }
-
+  const searchContainer = document.querySelector(".search-container")
   updateCartIcon();
+  Search(searchContainer)
 
 };
 

@@ -18,8 +18,8 @@ const AdminAccordion = (products) => {
                         aria-expanded="true" 
                         aria-controls="collapse${product.id}">
 
-                        <div class="container d-flex justify-content-between align-items-center pl-2 text-dark">
-                            <div>ID: ${product.id}</div>
+                        <div class="accordion__btn-content container d-flex flex-column justify-content-between align-items-center pl-2 text-dark">                          
+                            <div>Id: ${product.id}</div>
                             <div class="accordion__item_name">${product.attributes.name}</div>
                             <img 
                                 class="table__img" 
@@ -45,8 +45,8 @@ const AdminAccordion = (products) => {
                             <div><strong>Price</strong></div>
                             <div>${product.attributes.price}</div>
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="/admin-product-detail.html?id=edit" class="nav-link text-black" data-id=${product.id}>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}" class="nav-link text-black">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                             <i class="bi bi-trash" data-id=${product.id} style="color: red;"></i>
@@ -57,13 +57,10 @@ const AdminAccordion = (products) => {
     })
 
     const deleteProductBtn = document.querySelectorAll(".bi-trash");
-    const editProductBtn = document.querySelectorAll(".bi-pencil-square");
+
 
     deleteProductBtn.forEach((btn) => {
         btn.onclick = (event) => deleteProduct(event)
-    })
-    editProductBtn.forEach((btn) => {
-        btn.onclick = (event) => editProduct(event)
     })
 }
 

@@ -45,3 +45,9 @@
         display: none;
     }
 }
+
+@media screen and (min-width: 300px) {
+    .accordion__btn-content {
+        flex-direction: row !important;
+    }
+}

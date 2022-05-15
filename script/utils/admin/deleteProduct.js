@@ -18,12 +18,12 @@ const requestOptions = {
 
 const deleteProduct = async (event) => {
     const id = event.target.dataset.id;
-    console.log(id)
+
     if (user.admin) {
 
-        const answer = window.confirm("Are you sure you want to delete this product?");
+        const doYouDear = window.confirm("Are you sure you want to delete this product?");
 
-        if (answer) {
+        if (doYouDear) {
             try {
 
                 const response = await fetch(apiUrls.baseUrl + "/api/products/" + id, requestOptions);

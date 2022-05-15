@@ -14,7 +14,7 @@ const Hero = (heroData) => {
                     <figcaption class="hero__content_container container order-md-1 px-0 px-sm-2">
                         <h1 class="">${item.attributes.header}</h1>
                         <p class="lh-sm">${item.attributes.subHeader}</p>
-                        <div><button class="btn btn-secondary">BUY NOW</button></div>
+                        <a href="/product-detail.html?id=${item.id}"class="btn btn-secondary">BUY NOW</a>
                     </figcaption>
                 </section>`
         })

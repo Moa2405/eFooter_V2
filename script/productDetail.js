@@ -13,12 +13,18 @@ Footer()
 
 const productDetail = async () => {
 
-    const product = await fetchData(apiUrls.baseUrl + apiUrls.singleProductsUrl + productId + apiUrls.populateImgUrl);
+    try {
 
-    const productDetailHeader = `${product.attributes.name}`;
-    document.title = `${product.attributes.name} | eFooter`;
+        const product = await fetchData(apiUrls.baseUrl + apiUrls.singleProductsUrl + productId + apiUrls.populateImgUrl);
 
-    ProductDetail(product, productDetailHeader);
+        document.title = `${product.attributes.name} | eFooter`;
+
+        ProductDetail(product);
+
+    } catch (error) {
+
+    }
+
 
 }
 
