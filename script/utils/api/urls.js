@@ -13,7 +13,9 @@ const apiUrls = {
 
     singleProductsUrl: "/api/products/",
 
-    populateImgUrl: "?populate=image&fields=name,description,price"
-}
+    populateImgUrl: "?populate=image&fields=name,description,price",
+
+    uploadedMedia: "https://my-app-f7t32.ondigitalocean.app/api/upload/files"
+};
 
 export default apiUrls;

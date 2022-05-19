@@ -1,4 +1,4 @@
-import deleteProduct from "../../utils/admin/deleteProduct.js";
+import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
 import apiUrls from "../../utils/api/urls.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
@@ -30,7 +30,7 @@ const AdminTable = async (products) => {
 
 
         let updateLink = user.admin
-            ? `<a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}" 
+            ? `<a href="/admin-update-product.html?id=${product.id}" 
                 class="nav-link text-black">
                 <i class="bi bi-pencil-square"></i>
               </a>`
@@ -39,6 +39,16 @@ const AdminTable = async (products) => {
                 <i class="bi bi-pencil-square"></i>
               </a>`;
 
+        let img = !product.attributes.image.data.attributes.formats
+            ? `<img class="table__img rounded-circle" 
+                    src="#" 
+                    alt="" 
+                    width="32" height="32">`
+
+            : `<img class="table__img rounded-circle" 
+                    src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
+                    alt="${product.attributes.name}" 
+                    width="32" height="32">`
 
         adminProducts.innerHTML += `
             <tr>
@@ -46,10 +56,7 @@ const AdminTable = async (products) => {
                 <td>${product.attributes.name}</td>
                 <td class="table__description">${product.attributes.description}</td>
                 <td>
-                    <img class="table__img rounded-circle" 
-                        src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
-                        alt="${product.attributes.name}" 
-                        width="32" height="32">
+                    ${img}
                 </td>
                 <td>
                     ${updateLink}
@@ -61,7 +68,7 @@ const AdminTable = async (products) => {
     const deleteProductBtn = document.querySelectorAll(".bi-trash");
 
     deleteProductBtn.forEach((btn) => {
-        btn.onclick = (event) => deleteProduct(event)
+        btn.onclick = (event) => handleDeleteProduct(event);
     })
 }
 

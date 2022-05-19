@@ -1,5 +1,5 @@
 import apiUrls from "../../utils/api/urls.js";
-import deleteProduct from "../../utils/admin/deleteProduct.js";
+import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
 
@@ -15,7 +15,7 @@ const AdminAccordion = (products) => {
 
 
         let updateLink = user.admin
-            ? `<a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}" 
+            ? `<a href="/admin-product-detail.html?id=${product.id}" 
                 class="nav-link text-black">
                 <i class="bi bi-pencil-square"></i>
             </a>`
@@ -23,6 +23,16 @@ const AdminAccordion = (products) => {
                 class="nav-link text-black">
                 <i class="bi bi-pencil-square"></i>
               </a>`;
+
+        let img = !product.attributes.image.data.attributes.formats
+            ? `<img class="table__img rounded-circle" 
+                    src="#" 
+                    alt="No image on this product"`
+
+            : `<img class="table__img rounded-circle" 
+                    src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
+                    alt="${product.attributes.name}" 
+                    width="50px" height="50px">`
 
         adminAccordionContainer.innerHTML += `
             <div class="accordion-item mb-3 shadow rounded-2">
@@ -38,12 +48,7 @@ const AdminAccordion = (products) => {
                         <div class="accordion__btn-content container d-flex flex-column justify-content-between align-items-center pl-2 text-dark">                          
                             <div>Id: ${product.id}</div>
                             <div class="accordion__item_name">${product.attributes.name}</div>
-                            <img 
-                                class="table__img" 
-                                src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
-                                alt="${product.attributes.name}" 
-                                width="70" 
-                                height="70">
+                            ${img}
                         </div>
                     </button>
                 </h2>
@@ -75,7 +80,7 @@ const AdminAccordion = (products) => {
 
 
     deleteProductBtn.forEach((btn) => {
-        btn.onclick = (event) => deleteProduct(event)
+        btn.onclick = (event) => handleDeleteProduct(event)
     })
 }
 

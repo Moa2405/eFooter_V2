@@ -1,4 +1,4 @@
-import DisplayMessage from "../components/DisplayMessage.js";
+import DisplayMessage from "../../components/DisplayMessage.js";
 
 const handelLoginSignUp = async (data, url) => {
     let userData = {};

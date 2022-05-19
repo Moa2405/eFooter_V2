@@ -20,8 +20,12 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div class="container-md bg-light d-flex flex-column justify-content-center">
-            <form id="form" enctype="multipart/form-data" class="d-flex flex-column gap-4" style="max-width: 700px;">
+        <div class="product__container_fluid d-flex flex-column gap-3 container-fluid bg-light py-4">
+            <div class="container">
+                <h1 class="update__header"></h1>
+            </div>
+            <form id="form" enctype="multipart/form-data" method="put" class="container d-flex flex-column gap-4"
+                style="max-width: 700px;">
                 <div class="">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" required />
@@ -37,9 +41,8 @@
                     <input type="number" class="form-control" id="price" name="price" />
                 </div>
 
-                <div class="">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="file" class="form-control" id="image" name="files.image" />
+                <div class="img-uploads container d-flex flex-wrap gap-4">
+
                 </div>
 
                 <div class="form-check">
@@ -52,14 +55,14 @@
                 <div class="message"></div>
 
                 <div class="">
-                    <button type="submit" class="btn btn-success">Add Product</button>
+                    <button type="submit" class="btn btn-success">Update product</button>
                 </div>
             </form>
         </div>
     </main>
-    <footer class="container-fluid bg-primary text-white"></footer>
+    <footer class="container-fluid mt-auto bg-primary text-white"></footer>
 
-    <script src="script/adminProductDetail.js" type="module"></script>
+    <script src="script/updateProduct.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>

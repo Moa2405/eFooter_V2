@@ -1,6 +1,6 @@
 import * as localStorage from "./storage/localStorage.js";
 import storageKeys from "./storage/storageKeys.js";
-import handelSignUp from "./utils/handleSignUpSignIn.js";
+import handelSignUp from "./utils/eventListeners/handleSignUpSignIn.js";
 import DisplayMessage from "./components/DisplayMessage.js";
 import NavBar from "./components/NavBar.js";
 import Footer from "./components/Footer.js";
@@ -15,7 +15,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const checkboxPassword = document.querySelector("#checkbox-password");
 const messageContainer = document.querySelector(".message-container");
-const form = document.querySelector("#login-form");
+const form = document.querySelector(".login-form");
 
 email.value = "";
 password.value = "";
@@ -71,7 +71,7 @@ const signUpUser = async (data) => {
         if (!loggedInUser.user) {
             DisplayMessage(
                 "danger",
-                `${loggedInUser.message[0].messages[0].message}`,
+                `${loggedInUser.error.message}`,
                 ".message-container"
             );
 

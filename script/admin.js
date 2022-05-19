@@ -14,6 +14,8 @@ Footer()
 const admin = async () => {
     const products = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl)
 
+    console.log(products)
+
     Table(products)
 
     Accordion(products)

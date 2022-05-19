@@ -6,12 +6,9 @@ import fetchData from "../api/fetchData.js";
 import AdminAccordion from "../../components/admin/Accordion.js";
 import AdminTable from "../../components/admin/Table.js";
 
-
-
 const user = localStorage.getData(storageKeys.USER_KEY);
 
 const token = localStorage.getData(storageKeys.TOKEN_KEY);
-
 
 const headers = new Headers();
 headers.append("Authorization", `Bearer ${token}`);
