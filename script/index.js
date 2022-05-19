@@ -21,16 +21,17 @@ const app = async () => {
     const dataInStorage = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 
     // <----this will run only once & as long as localStorage is empty--->
-    if (!dataInStorage.length) {
-        const allProducts = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
-        const hero = await fetchData(apiUrls.baseUrl + apiUrls.heroSectionUrl);
-        const featuredProducts = await fetchDataByCategory(apiUrls.baseUrl + apiUrls.featuredUrl);
+    // if (!dataInStorage.length) {
+    // }
+
+    const allProducts = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
+    const hero = await fetchData(apiUrls.baseUrl + apiUrls.heroSectionUrl);
+    const featuredProducts = await fetchDataByCategory(apiUrls.baseUrl + apiUrls.featuredUrl);
 
 
-        localeStorage.saveData(storageKeys.ALL_PRODUCTS_KEY, allProducts);
-        localeStorage.saveData(storageKeys.HERO_KEY, hero);
-        localeStorage.saveData(storageKeys.FEATURED_KEY, featuredProducts);
-    }
+    localeStorage.saveData(storageKeys.ALL_PRODUCTS_KEY, allProducts);
+    localeStorage.saveData(storageKeys.HERO_KEY, hero);
+    localeStorage.saveData(storageKeys.FEATURED_KEY, featuredProducts);
 
     const heroData = localeStorage.getData(storageKeys.HERO_KEY)
 
