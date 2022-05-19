@@ -9,7 +9,7 @@ const apiUrls = {
 
     featuredUrl: "/api/category/1?populate[products][populate]=image",
 
-    productsUrl: "/api/products?populate=image&fields=name,description,price",
+    productsUrl: "/api/products?populate=image&fields=name,description,price,createdAt",
 
     singleProductsUrl: "/api/products/",
 

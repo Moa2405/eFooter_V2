@@ -85,6 +85,19 @@ const FavProductCard = (products) => {
     //       </div>`
     //   ;
   })
+
+  const removeFromFavBtn = document.querySelectorAll(".favorites__btn");
+  console.log(removeFromFavBtn)
+
+  removeFromFavBtn.forEach((btn) => {
+    btn.onclick = (event) => {
+      const newList = deleteItemFromList(products, storageKeys.FAV_KEY, event)
+
+      FavProductCard(newList);
+    };
+  });
+
+
 }
 
 export default FavProductCard;

@@ -2,17 +2,15 @@ import apiUrls from "../../utils/api/urls.js";
 import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
+import moment from '/../../../node_modules/moment/dist/moment.js';
 
 const user = localeStorage.getData(storageKeys.USER_KEY);
-
-
 
 const adminAccordionContainer = document.querySelector(".accordion");
 
 const AdminAccordion = (products) => {
 
     products.forEach((product) => {
-
 
         let updateLink = user.admin
             ? `<a href="/admin-update-product.html?id=${product.id}" 
@@ -63,9 +61,15 @@ const AdminAccordion = (products) => {
                             <div><strong>Description</strong></div>
                             <div>${product.attributes.description}</div>
                         </div>
-                        <div>
-                            <div><strong>Price</strong></div>
-                            <div>${product.attributes.price}</div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div><strong>Price</strong></div>
+                                <div>${product.attributes.price}</div>
+                            </div>
+                            <div>
+                                <div><strong>Created:</strong></div>
+                                <div>${moment(product.attributes.createdAt).format("LLL")}</div>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             ${updateLink}

@@ -19,15 +19,6 @@ const favorites = () => {
     spinner.classList.add("d-none");
 
     FavProductCard(favDataList);
-
-    const removeFromFavBtn = document.querySelectorAll(".favorites__btn");
-    console.log(removeFromFavBtn)
-
-    removeFromFavBtn.forEach((btn) => {
-        btn.onclick = (event) => {
-            FavProductCard(deleteItemFromList(favDataList, storageKeys.FAV_KEY, event));
-        };
-    });
 };
 
 favorites()
