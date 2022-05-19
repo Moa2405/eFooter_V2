@@ -24,6 +24,7 @@ const Search = (container) => {
     datalist.setAttribute("id", "datalistOptions");
 
     const products = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
+
     products.forEach((p) => {
 
         let link = document.createElement("a");
@@ -42,7 +43,6 @@ const Search = (container) => {
     container.appendChild(datalist)
     container.appendChild(icon)
 
-    const search = document.querySelector(".search");
 }
 
 export default Search;

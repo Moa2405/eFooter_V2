@@ -1,22 +1,24 @@
 import apiUrls from "../api/urls.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
+import DisplayMessage from "../../components/DisplayMessage.js";
+import fetchData from "../api/fetchData.js";
 
 
-const onCrateProduct = async (e) => {
+const handleCrateProduct = async (e) => {
     e.preventDefault()
-    form = e.target;
-    console.log(form)
+    const form = e.target;
     const enctype = form.enctype;
     const originalFormData = new FormData(form);
     const body = new FormData();
 
     for (const [key, value] of originalFormData.entries()) {
+
         if (key.includes('files.')) {
+
             body.append(key, value);
-            // Add this to the request body
+
             originalFormData.delete(key);
-            // Remove it from the original form data list
         }
     }
 
@@ -24,15 +26,17 @@ const onCrateProduct = async (e) => {
 
     const headers = new Headers({ Authorization: `Bearer ${token}` });
 
-    console.log(headers)
-
     const data = Object.fromEntries(originalFormData.entries());
     body.append('data', JSON.stringify(data));
-    console.log(data)
 
     const url = apiUrls.baseUrl + "/api/products";
 
     try {
+
+        const spinner = document.querySelector(".spinner");
+
+        spinner.classList.remove("d-none");
+
         const response = await fetch(url, {
             body,
             method: "post",
@@ -40,12 +44,28 @@ const onCrateProduct = async (e) => {
             headers
         });
 
-        const result = await response.json();
-        console.log(result)
 
-    } catch (err) {
-        console.log(err)
+        if (response.status === 200) {
+
+            const newProductList = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
+
+            localeStorage.saveData(storageKeys.ALL_PRODUCTS_KEY, newProductList);
+
+            window.location = "/admin.html";
+
+        } else {
+            spinner.classList.add("d-none");
+
+            DisplayMessage("danger", "Some thing went wrong", ".message");
+
+            throw new Error("error");
+        }
+
+    } catch (error) {
+        console.log(error);
+
+        spinner.classList.add("d-none");
     }
 }
 
-export default onCrateProduct;
+export default handleCrateProduct;

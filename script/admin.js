@@ -11,13 +11,12 @@ const addProductBtn = document.querySelector(".add-product-btn");
 NavBar()
 Footer()
 
-const Admin = async () => {
+const admin = async () => {
     const products = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl)
-    console.log(products)
 
     Table(products)
 
     Accordion(products)
 }
 
-Admin()
+admin()

@@ -15,10 +15,16 @@
     <div class="loading__overlay"></div>
     <div class="navbar-container container-fluid"></div>
     <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
+        <div
+            class="spinner d-none d-flex fs-5 justify-content-center align-items-center text-primary position-absolute top-0 start-0 bottom-0 end-0 bg-dark opacity-75">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <div class="container-lg d-flex flex-column gap-5">
-            <section class="container">
+            <div class="container">
                 <h1>Admin panel</h1>
-            </section>
+            </div>
             <section class="container d-flex flex-column flex-sm-row justify-content-between gap-3">
                 <h2>Products</h2>
                 <div>
@@ -29,6 +35,7 @@
                     </a>
                 </div>
             </section>
+            <div class="message"></div>
             <section class="admin-table container">
             </section>
             <section class="admin-accordion container">

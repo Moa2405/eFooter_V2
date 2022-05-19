@@ -8,7 +8,7 @@ const Hero = (heroData) => {
         heroData.forEach((item) => {
             heroContainer.innerHTML =
                 `<section class="hero container-lg d-flex flex-column flex-md-row align-items-center py-5 px-lg-5 text-white">
-                    <figure class="hero__image_container container  order-md-2">
+                    <figure class="hero__image_container container  order-md-2 px-0">
                         <img class="img-fluid" src="${apiUrls.baseUrl}${item.attributes.image.data[0].attributes.url}" alt="${item.attributes.header}">
                     </figure>
                     <figcaption class="hero__content_container container order-md-1 px-0 px-sm-2">

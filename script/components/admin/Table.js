@@ -1,5 +1,9 @@
 import deleteProduct from "../../utils/admin/deleteProduct.js";
 import apiUrls from "../../utils/api/urls.js";
+import * as localeStorage from "../../storage/localStorage.js";
+import storageKeys from "../../storage/storageKeys.js";
+
+const user = localeStorage.getData(storageKeys.USER_KEY);
 
 const AdminTable = async (products) => {
     const adminTable = document.querySelector(".admin-table");
@@ -23,6 +27,19 @@ const AdminTable = async (products) => {
     const adminProducts = document.querySelector(".table-body");
 
     products.forEach((product) => {
+
+
+        let updateLink = user.admin
+            ? `<a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}" 
+                class="nav-link text-black">
+                <i class="bi bi-pencil-square"></i>
+              </a>`
+            : `<a href="/sign-in.html" 
+                class="nav-link text-black">
+                <i class="bi bi-pencil-square"></i>
+              </a>`;
+
+
         adminProducts.innerHTML += `
             <tr>
                 <td scope="row">${product.id}</td>
@@ -35,9 +52,7 @@ const AdminTable = async (products) => {
                         width="32" height="32">
                 </td>
                 <td>
-                    <a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}">
-                        <i class="bi bi-pencil-square" data-id=${product.id}></i>
-                    </a>
+                    ${updateLink}
                 </td>
                 <td><i class="bi bi-trash" data-id=${product.id} style="color: red;"></i></td>
             </tr>`

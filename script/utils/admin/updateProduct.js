@@ -41,7 +41,9 @@ const onUpdateProduct = async (event, id) => {
 
         const result = await response.json()
 
-        console.log(result)
+        console.log(result);
+
+
 
         // if (response.ok) {
         //     window.location = "/admin.html";

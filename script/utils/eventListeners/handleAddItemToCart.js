@@ -10,6 +10,8 @@ const handleAddItemToCart = (quantity, btn) => {
 
     btn.onclick = (event) => {
 
+        console.log(quantity.value)
+
         const id = parseInt(event.target.dataset.id);
         const amountOfItem = parseInt(quantity.value);
 
@@ -28,8 +30,6 @@ const handleAddItemToCart = (quantity, btn) => {
             totalAmount: productTotalAmount
         };
 
-        console.log(newObjectToSaveInCart)
-
         const currentCart = localStorage.getData(storageKeys.CART_KEY);
 
         const doseItemExistInCart = currentCart.find(
@@ -41,8 +41,6 @@ const handleAddItemToCart = (quantity, btn) => {
 
             localStorage.saveData(storageKeys.CART_KEY, currentCart);
 
-            const newCart = localStorage.getData(storageKeys.CART_KEY);
-
             updateCartIcon()
 
             DisplayMessage(
@@ -50,11 +48,9 @@ const handleAddItemToCart = (quantity, btn) => {
                 `${targetProduct[0].attributes.name} added to cart`,
                 "#message"
             );
-
-            console.log(newCart);
         };
+
         if (doseItemExistInCart) {
-            console.log("item exist")
             DisplayMessage(
                 "warning",
                 "Product already added to cart",

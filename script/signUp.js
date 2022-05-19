@@ -7,6 +7,9 @@ import Footer from "./components/Footer.js";
 import apiUrls from "./utils/api/urls.js";
 import showHidePassword from "./utils/eventListeners/hideShowPassword.js";
 
+NavBar();
+Footer();
+
 const userName = document.querySelector("#user-name");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
@@ -17,9 +20,7 @@ const form = document.querySelector("#login-form");
 email.value = "";
 password.value = "";
 userName.value = "";
-
-NavBar();
-Footer()
+checkboxPassword.checked = false
 
 const validateEmail = (email) => {
     const regEx = /\S+@\S+\.\S+/;
@@ -60,20 +61,29 @@ form.addEventListener("submit", function (event) {
 });
 
 const signUpUser = async (data) => {
-    const url = apiUrls.baseUrl + apiUrls.signUpUserUrl;
-    const loggedInUser = await handelSignUp(data, url);
 
-    if (!loggedInUser.user) {
-        return DisplayMessage(
-            "danger",
-            `${loggedInUser.message[0].messages[0].message}`,
-            ".message-container"
-        );
-    } else {
-        localStorage.saveData(storageKeys.TOKEN_KEY, loggedInUser.jwt);
-        localStorage.saveData(storageKeys.USER_KEY, loggedInUser.user);
-        window.location.href = "/";
+    const url = apiUrls.baseUrl + apiUrls.signUpUserUrl;
+
+    try {
+        const loggedInUser = await handelSignUp(data, url);
+        console.log(loggedInUser)
+
+        if (!loggedInUser.user) {
+            DisplayMessage(
+                "danger",
+                `${loggedInUser.message[0].messages[0].message}`,
+                ".message-container"
+            );
+
+        } else {
+            localStorage.saveData(storageKeys.TOKEN_KEY, loggedInUser.jwt);
+            localStorage.saveData(storageKeys.USER_KEY, loggedInUser.user);
+            window.location.href = "/";
+        }
+    } catch (error) {
+        console.log(error)
     }
+
 };
 
 

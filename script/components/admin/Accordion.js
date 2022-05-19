@@ -1,11 +1,28 @@
 import apiUrls from "../../utils/api/urls.js";
 import deleteProduct from "../../utils/admin/deleteProduct.js";
+import * as localeStorage from "../../storage/localStorage.js";
+import storageKeys from "../../storage/storageKeys.js";
+
+const user = localeStorage.getData(storageKeys.USER_KEY);
+
+
 
 const adminAccordionContainer = document.querySelector(".accordion");
 
 const AdminAccordion = (products) => {
 
     products.forEach((product) => {
+
+
+        let updateLink = user.admin
+            ? `<a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}" 
+                class="nav-link text-black">
+                <i class="bi bi-pencil-square"></i>
+            </a>`
+            : `<a href="/sign-in.html" 
+                class="nav-link text-black">
+                <i class="bi bi-pencil-square"></i>
+              </a>`;
 
         adminAccordionContainer.innerHTML += `
             <div class="accordion-item mb-3 shadow rounded-2">
@@ -46,9 +63,7 @@ const AdminAccordion = (products) => {
                             <div>${product.attributes.price}</div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="/admin-product-detail.html?typeOfForm=update&productId=${product.id}" class="nav-link text-black">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
+                            ${updateLink}
                             <i class="bi bi-trash" data-id=${product.id} style="color: red;"></i>
                         </div> 
                     </div>

@@ -13,11 +13,17 @@
 
 <body class="d-flex flex-column h-100">
     <div class="navbar-container container-fluid"></div>
-    <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
-        <div class="container-lg bg-light">
-            <form id="form" enctype="multipart/form-data" class="d-flex flex-column gap-4">
+    <main class="container-fluid position-relative flex-shrink-0 py-4 d-flex flex-column gap-5">
+        <div
+            class="spinner d-none d-flex fs-5 justify-content-center align-items-center text-primary position-absolute top-0 start-0 bottom-0 end-0 bg-secondary opacity-75">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="container-md bg-light d-flex flex-column justify-content-center">
+            <form id="form" enctype="multipart/form-data" class="d-flex flex-column gap-4" style="max-width: 700px;">
                 <div class="">
-                    <label for="name" class="form-label">Title</label>
+                    <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" required />
                 </div>
 
@@ -43,13 +49,15 @@
                     </label>
                 </div>
 
+                <div class="message"></div>
+
                 <div class="">
-                    <button type="submit" class="btn btn-success">Create Example</button>
+                    <button type="submit" class="btn btn-success">Add Product</button>
                 </div>
             </form>
         </div>
     </main>
-    <footer class="container-fluid mt-auto bg-primary text-white"></footer>
+    <footer class="container-fluid bg-primary text-white"></footer>
 
     <script src="script/adminProductDetail.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"

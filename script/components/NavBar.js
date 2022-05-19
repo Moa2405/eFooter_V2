@@ -11,7 +11,7 @@ const NavBar = () => {
 
   window.onload = () => {
     const searchForm = document.querySelector(".search-container")
-    searchForm.onsubmit = handleSearch;
+    searchForm.onsubmit = (event) => handleSearch(event)
   }
 
   const { pathname } = document.location;
@@ -20,16 +20,16 @@ const NavBar = () => {
 
   const loggedIn = localStorage.getData(storageKeys.USER_KEY);
 
-  let homeLink = `<a class="nav-link ${pathname === "/" ? "active" : ""}" 
+  let homeLink =
+    `<a class="nav-link ${pathname === "/" ? "active" : ""}" 
       aria-current="page" href="/">Home</a>`;
 
   let productsLink = `<a class="nav-link ${pathname === "/products.html" ? "active" : ""
     }" href="products.html">Products</a>`;
 
-  let favoritesLink = loggedIn.username
-    ? `<a class="nav-link ${pathname === "/favorites.html" ? "active" : ""
-    }" href="favorites.html"><i class="bi bi-heart"></i></a>`
-    : "";
+  let favoritesLink =
+    `<a class="nav-link ${pathname === "/favorites.html" ? "active" : ""}" 
+      href="favorites.html"><i class="bi bi-heart"></i></a>`;
 
   let signInLink = !loggedIn.username
     ? `<a class="nav-link ${pathname === "/login.html" ? "active" : ""
@@ -42,15 +42,11 @@ const NavBar = () => {
     : "";
 
   let logOutLink = loggedIn.username
-    ? `<span class="logout-link nav-link" style="cursor: pointer;">Log out<span>`
-    : "";
-
-  let welcomeLink = loggedIn.username
-    ? `<span class="nav-link"><i class="bi bi-person"></i></span>`
+    ? `<span class="logout-link dropdown-item" style="cursor: pointer;">Log out<span>`
     : "";
 
   let adminLink = loggedIn.admin
-    ? `<a class="nav-link ${pathname === "/admin.html" ? "active" : ""
+    ? `<a class="dropdown-item ${pathname === "/admin.html" ? "active" : ""
     }" href="admin.html">Admin panel</a>`
     : "";
 
@@ -62,7 +58,19 @@ const NavBar = () => {
               <span class="cart__count"></span>
             </div>
           </a>
-        </div>`
+        </div>`;
+
+  let welcomeLink = loggedIn.username
+    ? `<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>${adminLink}</li>
+          <li>${logOutLink}</li>
+        </ul>
+      </li>`
+    : "";
 
   container.innerHTML = `
    
@@ -87,12 +95,6 @@ const NavBar = () => {
                 ${productsLink}
               </li>
               <li class="nav-item">
-                ${adminLink}
-              </li>
-              <li class="nav-item">
-                ${logOutLink}
-              </li>
-              <li class="nav-item">
                 ${signUpLink}
               </li>
               <li class="nav-item">
@@ -109,6 +111,9 @@ const NavBar = () => {
                 bg-light 
                 rounded-pill">           
               </form>
+              <li class="nav-item">
+                ${welcomeLink}
+              </li>
               <li class="nav-item">
                 ${favoritesLink}
               </li>

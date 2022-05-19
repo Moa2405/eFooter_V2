@@ -4,7 +4,7 @@ const Footer = () => {
     footer.innerHTML =
         `<div class="container-lg p-5 mt-5 d-flex flex-column flex-md-row justify-content-md-between">
             <div class="logo">
-                <p>eFooter</p>
+                <h2>eFooter</h2>
             </div>
             <div class="reserve">
                 <p>© 2022 All Rights reserve</p>

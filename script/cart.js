@@ -13,6 +13,7 @@ const cart = () => {
     const itemsInCart = localStorage.getData(storageKeys.CART_KEY);
 
     CartProduct(itemsInCart);
+
     handleCartTotalAmount()
 
 }

@@ -11,6 +11,7 @@ $secondary-300: #b3fff7;
 
 $primary: $primary-500;
 $secondary: $secondary-500;
+$light: rgba(247, 247, 247, 0.1);
 
 $gradients: (primaryBackgroundGradient: linear-gradient(150deg,
         rgba(128, 0, 177, 1) 30%,
@@ -24,3 +25,8 @@ $gradients: (primaryBackgroundGradient: linear-gradient(150deg,
 @function getGradients($gradient) {
     @return map-get($gradients, $gradient);
 }
+
+$spinner-width: 8rem;
+$spinner-height: $spinner-width;
+$spinner-animation-speed: 1s;
+$spinner-border-width: .5em;
