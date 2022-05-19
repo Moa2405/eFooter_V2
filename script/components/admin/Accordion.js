@@ -15,7 +15,7 @@ const AdminAccordion = (products) => {
 
 
         let updateLink = user.admin
-            ? `<a href="/admin-product-detail.html?id=${product.id}" 
+            ? `<a href="/admin-update-product.html.html?id=${product.id}" 
                 class="nav-link text-black">
                 <i class="bi bi-pencil-square"></i>
             </a>`
