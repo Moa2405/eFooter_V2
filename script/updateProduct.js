@@ -63,9 +63,7 @@ const updateProduct = async () => {
         document.querySelector(".img-uploads").appendChild(formCheck);
     })
 
-    document.querySelector(".header").textContent =
-
-        form.onsubmit = (event) => handleUpdateProduct(event, productId);
+    form.onsubmit = (event) => handleUpdateProduct(event, productId);
 }
 
 updateProduct()
