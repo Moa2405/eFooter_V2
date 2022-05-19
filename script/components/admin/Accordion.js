@@ -15,10 +15,10 @@ const AdminAccordion = (products) => {
 
 
         let updateLink = user.admin
-            ? `<a href="/admin-update-product.html.html?id=${product.id}" 
+            ? `<a href="/admin-update-product.html?id=${product.id}" 
                 class="nav-link text-black">
                 <i class="bi bi-pencil-square"></i>
-            </a>`
+               </a>`
             : `<a href="/sign-in.html" 
                 class="nav-link text-black">
                 <i class="bi bi-pencil-square"></i>

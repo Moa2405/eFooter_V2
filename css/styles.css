@@ -119,6 +119,10 @@ a:hover {
   right: -14px;
 }
 
+.form-control {
+  border: none !important;
+}
+
 *,
 *::before,
 *::after {
