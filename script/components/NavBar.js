@@ -62,7 +62,12 @@ const NavBar = () => {
 
   let welcomeLink = loggedIn.username
     ? `<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" 
+          href="#" id="navbarDropdown" 
+          role="button" 
+          data-bs-toggle="dropdown" 
+          aria-expanded="false"
+        >
           <i class="bi bi-person"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -75,7 +80,12 @@ const NavBar = () => {
   container.innerHTML = `
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-lg d-flex justify-content-between">
-          <a class="navbar-brand fs-3 fw-bold border border-3 border-dark p-2" href="/index.html"><span class="text-primary fs-2">e</span>Footer</a>
+          <a class="navbar-brand fs-3 fw-bold border border-3 border-dark px-2" 
+            href="/index.html"
+          >
+            <span class="text-primary fs-2">e</span>
+            Footer
+          </a>
           <button class="navbar-toggler" type="button" 
                          data-bs-toggle="collapse" 
                          data-bs-target="#navbarSupportedContent" 
@@ -93,10 +103,10 @@ const NavBar = () => {
               <li class="nav-item">
                 ${productsLink}
               </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center">
               <form class="search-container 
                 bg-light
+                order-1
+                order-lg-3
                 mx-lg-4
                 d-flex 
                 justify-content-around 
@@ -104,6 +114,8 @@ const NavBar = () => {
                 py-0 px-2 
                 rounded-pill">           
               </form>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center">
               <li class="nav-item">
                 ${signUpLink}
               </li>
