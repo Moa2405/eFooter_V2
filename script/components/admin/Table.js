@@ -2,6 +2,8 @@ import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.
 import apiUrls from "../../utils/api/urls.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
+import moment from '/../../../node_modules/moment/dist/moment.js';
+
 
 const user = localeStorage.getData(storageKeys.USER_KEY);
 
@@ -16,6 +18,7 @@ const AdminTable = async (products) => {
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Created</th>
                         <th class="table__description" scope="col">Description</th>
                         <th scope="col">Image</th>
                     </tr>
@@ -54,6 +57,7 @@ const AdminTable = async (products) => {
             <tr>
                 <td scope="row">${product.id}</td>
                 <td>${product.attributes.name}</td>
+                <td>${moment(product.attributes.createdAt).format("LL")}</td>
                 <td class="table__description">${product.attributes.description}</td>
                 <td>
                     ${img}

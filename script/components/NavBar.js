@@ -73,7 +73,6 @@ const NavBar = () => {
     : "";
 
   container.innerHTML = `
-   
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-lg d-flex justify-content-between">
           <a class="navbar-brand fs-3 fw-bold border border-3 border-dark p-2" href="/index.html"><span class="text-primary fs-2">e</span>Footer</a>
@@ -101,7 +100,7 @@ const NavBar = () => {
                 ${signInLink}
               </li>
             </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-md-center gap-2">
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center gap-2">
               <form class="search-container 
                 mx-lg-4
                 d-flex 

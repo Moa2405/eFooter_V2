@@ -6,6 +6,12 @@
     }
 }
 
+.navbar {
+    .active {
+        text-decoration: underline !important;
+    }
+}
+
 .search-container {
     max-width: 250px;
     height: 2.2rem;
@@ -37,8 +43,6 @@
     position: relative;
     max-width: 30px;
 }
-
-
 
 .cart__count_container {
     aspect-ratio: 1/1;

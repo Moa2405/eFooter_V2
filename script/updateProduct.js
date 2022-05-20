@@ -50,7 +50,7 @@ const updateProduct = async () => {
         label.setAttribute("for", i.id);
 
         const img = document.createElement("img");
-        img.setAttribute("class", "img-thumbnail");
+        img.setAttribute("class", "img-thumbnail shadow");
         img.setAttribute("src", i.formats ? apiUrls.baseUrl + i.formats.thumbnail.url : "#");
         img.setAttribute("alt", i.name);
         img.setAttribute("height", "100px");

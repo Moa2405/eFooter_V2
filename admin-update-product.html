@@ -21,11 +21,13 @@
             </div>
         </div>
         <div class="product__container_fluid d-flex flex-column gap-3 container-fluid bg-light py-4">
-            <div class="container">
-                <h1 class="update__header"></h1>
-            </div>
             <form id="form" enctype="multipart/form-data" method="put" class="container d-flex flex-column gap-4"
                 style="max-width: 700px;">
+                <div class="container px-0">
+                    <h1 class="update__header">
+                        <!-- js -->
+                    </h1>
+                </div>
                 <div class="">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control shadow" id="name" name="name" required />
@@ -43,8 +45,8 @@
                         style="max-width: 200px;" />
                 </div>
 
-                <div class="container m-0 bg-white shadow">
-                    <label for="img-uploads">Image</label>
+                <div class="container m-0 bg-white shadow py-3">
+                    <label for="img-uploads" class="form-label">Image</label>
                     <div id="img-uploads" class="img-uploads container d-flex flex-wrap gap-4">
                         <!-- js -->
                     </div>

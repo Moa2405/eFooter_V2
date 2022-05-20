@@ -63,8 +63,8 @@ const AdminAccordion = (products) => {
                         </div>
                         <div class="d-flex justify-content-between">
                             <div>
-                                <div><strong>Price</strong></div>
-                                <div>${product.attributes.price}</div>
+                                <div><strong>Price:</strong></div>
+                                <div>${product.attributes.price}.00 kr</div>
                             </div>
                             <div>
                                 <div><strong>Created:</strong></div>
