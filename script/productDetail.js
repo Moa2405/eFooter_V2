@@ -18,6 +18,8 @@ const productDetail = async () => {
 
         const product = await fetchData(apiUrls.baseUrl + apiUrls.singleProductsUrl + productId + apiUrls.populateImgUrl);
 
+        document.querySelector("#meta").setAttribute("content", product.attributes.description);
+
         document.title = `${product.attributes.name} | eFooter`;
 
         ProductDetail(product);

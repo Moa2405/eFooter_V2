@@ -51,7 +51,7 @@ const ProductCard = (products) => {
       cardImg.setAttribute("alt", name);
 
       const cardBody = document.createElement("div");
-      cardBody.setAttribute("class", "card-body d-flex justify-content-between justify-self-end");
+      cardBody.setAttribute("class", "card-body d-flex justify-content-between align-items-center justify-self-end");
 
       const cardLink = document.createElement("a");
       cardLink.setAttribute("href", `product-detail.html?id=${id}`);

@@ -36,7 +36,7 @@ const deleteProduct = async (event) => {
                 const newProductList = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
 
                 AdminAccordion(newProductList);
-                AdminTable(newProductList)
+                AdminTable(newProductList);
 
                 spinner.classList.add("d-none");
 
@@ -44,7 +44,7 @@ const deleteProduct = async (event) => {
 
                 setTimeout(() => {
                     document.querySelector(".message").style.display = "none";
-                }, "2000");
+                }, "3500");
 
             } catch (error) {
 

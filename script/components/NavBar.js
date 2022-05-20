@@ -94,7 +94,7 @@ const NavBar = () => {
                 ${productsLink}
               </li>
             </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center gap-2">
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center">
               <form class="search-container 
                 bg-light
                 mx-lg-4
