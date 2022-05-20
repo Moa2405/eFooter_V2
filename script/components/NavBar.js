@@ -76,7 +76,7 @@ const NavBar = () => {
    
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-lg d-flex justify-content-between">
-          <a class="navbar-brand" href="/index.html">eFooter</a>
+          <a class="navbar-brand fs-3 fw-bold border border-4 border-dark px-2 py-2" href="/index.html"><span class="text-primary fs-2">e</span>Footer</a>
           <button class="navbar-toggler" type="button" 
                          data-bs-toggle="collapse" 
                          data-bs-target="#navbarSupportedContent" 
