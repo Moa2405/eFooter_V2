@@ -91,7 +91,7 @@ a:hover {
 }
 
 .search-container button {
-  color: black;
+  color: black !important;
 }
 
 .search__icon {
