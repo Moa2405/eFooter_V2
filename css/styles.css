@@ -90,6 +90,10 @@ a:hover {
   height: 2.2rem;
 }
 
+.search-container button {
+  color: black;
+}
+
 .search__icon {
   border: none !important;
 }

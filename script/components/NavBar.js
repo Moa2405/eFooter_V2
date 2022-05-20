@@ -32,7 +32,7 @@ const NavBar = () => {
       href="favorites.html"><i class="bi bi-heart"></i></a>`;
 
   let signInLink = !loggedIn.username
-    ? `<a class="nav-link ${pathname === "/login.html" ? "active" : ""
+    ? `<a class="nav-link ${pathname === "sign-in.html" ? "active" : ""
     }" href="sign-in.html">Sign in</a>`
     : "";
 
@@ -93,23 +93,23 @@ const NavBar = () => {
               <li class="nav-item">
                 ${productsLink}
               </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center gap-2">
+              <form class="search-container 
+                bg-light
+                mx-lg-4
+                d-flex 
+                justify-content-around 
+                align-items-center 
+                py-0 px-2 
+                rounded-pill">           
+              </form>
               <li class="nav-item">
                 ${signUpLink}
               </li>
               <li class="nav-item">
                 ${signInLink}
               </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center gap-2">
-              <form class="search-container 
-                mx-lg-4
-                d-flex 
-                justify-content-around 
-                align-items-center 
-                py-0 px-2 
-                bg-light 
-                rounded-pill">           
-              </form>
               <li class="nav-item">
                 ${welcomeLink}
               </li>
