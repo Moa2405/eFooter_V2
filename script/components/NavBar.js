@@ -101,7 +101,7 @@ const NavBar = () => {
                 ${signInLink}
               </li>
             </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center g-3">
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-2">
               <form class="search-container 
                 mx-lg-4
                 d-flex 

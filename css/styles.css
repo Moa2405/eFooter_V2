@@ -83,6 +83,7 @@ a:hover {
 
 .search-container {
   max-width: 250px;
+  height: 2.2rem;
 }
 
 .search__icon {
@@ -125,6 +126,7 @@ a:hover {
 
 .btn-primary:hover {
   color: #ffffff !important;
+  background-color: #b700ff !important;
 }
 
 *,
