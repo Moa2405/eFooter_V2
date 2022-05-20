@@ -23,7 +23,7 @@ const FavProductCard = (products) => {
     cardContainer.setAttribute("class", "card__container col-sm-6 col-lg-4 mb-3");
 
     const cardWrapper = document.createElement("article");
-    cardWrapper.setAttribute("class", "card p-3 h-100 position-relative bg-white shadow");
+    cardWrapper.setAttribute("class", "card h-100 bg-transparent position-relative shadow");
 
     const cardFavBtn = document.createElement("button");
     cardFavBtn.setAttribute("class", "favorites__btn_container btn btn-light shadow-sm rounded-circle");

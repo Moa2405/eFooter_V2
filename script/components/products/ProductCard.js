@@ -33,7 +33,7 @@ const ProductCard = (products) => {
       cardContainer.setAttribute("class", "card__container col-sm-6 col-lg-4 mb-3");
 
       const cardWrapper = document.createElement("article");
-      cardWrapper.setAttribute("class", "card p-3 h-100 position-relative bg-white shadow");
+      cardWrapper.setAttribute("class", "card p-0 bg-transparent text-dark h-100 position-relative shadow");
 
       const cardFavBtn = document.createElement("button");
       cardFavBtn.setAttribute("class", "favorites__btn_container btn btn-light shadow-sm rounded-circle");
@@ -41,7 +41,7 @@ const ProductCard = (products) => {
       cardFavBtn.setAttribute("type", "button");
 
       const favIcon = document.createElement("i");
-      favIcon.setAttribute("class", `favorites__btn top-0 start-50 translate-middle ${btnCssClass}`);
+      favIcon.setAttribute("class", `favorites__btn top-0 start-50 fs-4 translate-middle ${btnCssClass}`);
       favIcon.setAttribute("data-id", id);
 
       const cardImg = document.createElement("img");
@@ -51,12 +51,12 @@ const ProductCard = (products) => {
       cardImg.setAttribute("alt", name);
 
       const cardBody = document.createElement("div");
-      cardBody.setAttribute("class", "card-body d-flex flex-column justify-self-end");
+      cardBody.setAttribute("class", "card-body d-flex justify-content-between justify-self-end");
 
       const cardLink = document.createElement("a");
       cardLink.setAttribute("href", `product-detail.html?id=${id}`);
 
-      const cardTitle = document.createElement("h4");
+      const cardTitle = document.createElement("h5");
       cardTitle.setAttribute("class", "card-title");
       cardTitle.textContent = name;
 
@@ -64,9 +64,26 @@ const ProductCard = (products) => {
       cardPrice.setAttribute("class", "card-text");
       cardPrice.textContent = `${price},00 kr`;
 
+      const cardCtaBtn = document.createElement("button");
+      cardCtaBtn.setAttribute("class", "btn btn-primary");
+      cardCtaBtn.setAttribute("type", "button");
+
+      const ctaIcon = document.createElement("i");
+      ctaIcon.setAttribute("class", "bi bi-cart3 fs-4");
+
+      const cardPriceNameContainer = document.createElement("div")
+      const cardCtaContainer = document.createElement("div")
+
       cardFavBtn.appendChild(favIcon);
-      cardBody.appendChild(cardTitle);
-      cardBody.appendChild(cardPrice);
+
+      cardPriceNameContainer.appendChild(cardTitle);
+      cardPriceNameContainer.appendChild(cardPrice);
+
+      cardCtaBtn.appendChild(ctaIcon);
+      cardCtaContainer.appendChild(cardCtaBtn);
+
+      cardBody.appendChild(cardPriceNameContainer);
+      cardBody.appendChild(cardCtaContainer);
 
       cardLink.appendChild(cardImg);
       cardLink.appendChild(cardBody);
@@ -86,9 +103,16 @@ const ProductCard = (products) => {
       //           </button>
       //           <a href="product-detail.html?id=${id}">
       //             <img src="${apiUrls.baseUrl}${image}" loading="lazy" class="card-img-top" alt="${name}">
-      //             <div class="card-body d-flex flex-column justify-self-end">
-      //               <h4 class="card-title">${name}</h4>
-      //               <p class="card-text">${price},00 kr</p>
+      //             <div class="card-body d-flex justify-content-between justify-self-end">
+      //             <div>
+      //                <h4 class="card-title">${name}</h4>
+      //                 <p class="card-text">${price},00 kr</p>
+      //             </div>
+      //             <div>
+      //                <button class="btn btn-primary" type="button">
+      //                  <i class="bi bi-cart3"></i>
+      //                </button>
+      //              </div>
       //             </div>
       //           </a> 
       //         </article>

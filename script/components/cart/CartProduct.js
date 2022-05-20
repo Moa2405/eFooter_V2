@@ -19,14 +19,14 @@ const CartProduct = (itemsInCart) => {
         itemsInCart.forEach((item) => {
 
             cartProductContainer.innerHTML += `
-                <li class="container mb-2 list-group-item px-0 d-flex gap-2">
-                    <div class="card row g-0">
-                        <div class="cart__img_container col-12 col-sm-5">
+                <li class="container mb-4 list-group-item px-0 d-flex gap-2 bg-transparent">
+                    <div class="card bg-transparent shadow d-flex flex-column flex-sm-row align-items-sm-center">
+                        <div class="cart__img_container">
                             <img src="${apiUrls.baseUrl}${item.attributes.image.data.attributes.formats.small.url}"
                                 alt="${item.attributes.name}"
                                 class="img-fluid rounded-start">
                         </div>
-                        <div class="card-body col-12 col-sm-5 py-sm-0 d-flex flex-column gap-3">
+                        <div class="card-body py-sm-0 d-flex flex-column gap-3">
 
                             <div class="container">
                                 <h5 class="card-title my-2">${item.attributes.name}</h5>
@@ -53,7 +53,7 @@ const CartProduct = (itemsInCart) => {
                                 <p class="cart_Item_amount card-text fw-bold">${item.totalAmount}.00 kr</p>
                             </div>
                             
-                            <div class="container d-flex justify-content-end">
+                            <div class="container">
                                 <p class="card-text my-1" data-id="${item.id}">
                                     <small class="text-muted">Delete <i class="cart__product_delete-btn bi bi-trash" data-id="${item.id}"></i></small>
                                 </p>

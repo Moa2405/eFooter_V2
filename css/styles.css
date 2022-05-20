@@ -129,6 +129,14 @@ a:hover {
   background-color: #b700ff !important;
 }
 
+.card a {
+  color: #000000 !important;
+}
+
+.card a:hover {
+  color: #000000 !important;
+}
+
 *,
 *::before,
 *::after {
