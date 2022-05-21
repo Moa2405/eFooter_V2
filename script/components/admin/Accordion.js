@@ -2,7 +2,9 @@ import apiUrls from "../../utils/api/urls.js";
 import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
-import moment from '/../../../node_modules/moment/dist/moment.js';
+import moment from 'moment';
+
+// import moment from '/../../../node_modules/moment/dist/moment.js';
 
 const user = localeStorage.getData(storageKeys.USER_KEY);
 
