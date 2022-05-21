@@ -14,54 +14,62 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <div class="navbar-container container-fluid"></div>
-    <main class="container-fluid position-relative flex-shrink-0 py-4 d-flex flex-column gap-5">
+    <div class="navbar-container container-fluid pt-2"></div>
+    <main class="container-fluid px-0 position-relative flex-shrink-0 d-flex flex-column gap-5">
         <div
             class="spinner d-none d-flex fs-5 justify-content-center align-items-center text-primary position-absolute top-0 start-0 bottom-0 end-0 bg-secondary opacity-75">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div class="container-md bg-light d-flex flex-column justify-content-center">
-            <div class="container">
-                <h1 class="header">
-                    Create new product
-                </h1>
+        <div class="d-flex flex-column gap-3 container-fluid bg-light">
+            <div class="container-lg bg-light px-0 shadow my-5">
+                <div class="container d-flex flex-column gap-3 py-5" style="max-width: 700px;">
+                    <div class="container">
+                        <h1 class="header">
+                            Create new product
+                        </h1>
+                    </div>
+                    <form id="form" enctype="multipart/form-data" class="container d-flex flex-column gap-4"
+                        style="max-width: 700px;">
+                        <div>
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control shadow bg-transparent" id="name" name="name"
+                                required />
+                        </div>
+
+                        <div>
+                            <label for="description" class="form-label">Description</label>
+                            <textarea type="text" maxlength="200" class="form-control shadow" id="description"
+                                name="description" rows="4">
+                            </textarea>
+                        </div>
+
+                        <div>
+                            <label for="price" class="form-label">Price</label>
+                            <input required type="number" class="form-control shadow" id="price" name="price" />
+                        </div>
+
+                        <div>
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" class="form-control shadow" id="image" name="files.image" />
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="categories" value="1" id="featured">
+                            <label class="form-check-label" for="featured">
+                                Featured
+                            </label>
+                        </div>
+
+                        <div class="message"></div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary">Add Product</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form id="form" enctype="multipart/form-data" class="d-flex flex-column gap-4" style="max-width: 700px;">
-                <div class="">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required />
-                </div>
-
-                <div class="">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea type="text" class="form-control" id="description" name="description" rows="4"></textarea>
-                </div>
-
-                <div class="">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="price" name="price" />
-                </div>
-
-                <div class="">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="file" class="form-control" id="image" name="files.image" />
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="1" id="featured">
-                    <label class="form-check-label" for="featured">
-                        Featured
-                    </label>
-                </div>
-
-                <div class="message"></div>
-
-                <div class="">
-                    <button type="submit" class="btn btn-success">Add Product</button>
-                </div>
-            </form>
         </div>
     </main>
     <footer class="container-fluid mt-auto bg-primary text-white"></footer>

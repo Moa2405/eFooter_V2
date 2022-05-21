@@ -15,7 +15,13 @@ const apiUrls = {
 
     populateImgUrl: "?populate=image&fields=name,description,price",
 
-    uploadedMedia: "https://my-app-f7t32.ondigitalocean.app/api/upload/files"
+    uploadedMedia: "https://my-app-f7t32.ondigitalocean.app/api/upload/files",
+
+    orderByCreated: "&sort[0]=createdAt%3Aasc",
+
+    orderById: "&sort[0]=id%3Aasc",
+
+    orderByName: "&sort[0]=name%3Aasc"
 };
 
 export default apiUrls;

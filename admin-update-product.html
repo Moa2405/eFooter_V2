@@ -14,59 +14,67 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <div class="navbar-container container-fluid"></div>
-    <main class="container-fluid position-relative flex-shrink-0 py-4 d-flex flex-column gap-5">
+    <div class="navbar-container container-fluid pt-2"></div>
+    <main class="container-fluid px-0 position-relative flex-shrink-0 d-flex flex-column gap-5">
         <div
             class="spinner d-none d-flex fs-5 justify-content-center align-items-center text-primary position-absolute top-0 start-0 bottom-0 end-0 bg-secondary opacity-75">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div class="product__container_fluid d-flex flex-column gap-3 container-fluid bg-light py-4">
-            <form id="form" enctype="multipart/form-data" method="put" class="container d-flex flex-column gap-4"
-                style="max-width: 700px;">
-                <div class="container px-0">
-                    <h1 class="update__header">
-                        <!-- js -->
-                    </h1>
-                </div>
-                <div class="">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control shadow" id="name" name="name" required />
-                </div>
-
-                <div class="">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea type="text" class="form-control shadow" id="description" name="description"
-                        rows="4"></textarea>
-                </div>
-
-                <div class="">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control shadow" id="price" name="price"
-                        style="max-width: 200px;" />
-                </div>
-
-                <div class="container m-0 bg-white shadow py-3">
-                    <label for="img-uploads" class="form-label">Image</label>
-                    <div id="img-uploads" class="img-uploads container d-flex flex-wrap gap-4">
-                        <!-- js -->
+        <div class="d-flex flex-column gap-3 container-fluid bg-light">
+            <div class="container-lg bg-light px-0 shadow my-5">
+                <div class="d-flex flex-column gap-3 container py-5" style="max-width: 700px;">
+                    <div class="container">
+                        <h1 class="update__header">
+                            <!-- js -->
+                        </h1>
+                        <p class="Update__created text-muted">
+                            <!-- js -->
+                        </p>
                     </div>
-                </div>
+                    <form id="form" enctype="multipart/form-data" method="put"
+                        class="container d-flex flex-column gap-4">
+                        <div class="">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control shadow" id="name" name="name" required />
+                        </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="categories" value="1" id="featured">
-                    <label class="form-check-label" for="featured">
-                        Featured
-                    </label>
-                </div>
+                        <div class="">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea maxlength="200" type="text" class="form-control shadow" id="description"
+                                name="description" rows="4">
+                            </textarea>
+                        </div>
 
-                <div class="message"></div>
+                        <div class="">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control shadow" id="price" name="price"
+                                style="max-width: 200px;" />
+                        </div>
 
-                <div class="">
-                    <button type="submit" class="btn btn-success">Update product</button>
+                        <div class="container m-0 bg-white shadow py-3">
+                            <label for="img-uploads" class="form-label">Image</label>
+                            <div id="img-uploads" class="img-uploads container d-flex flex-wrap gap-4">
+                                <!-- js -->
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="categories" value="1" id="featured">
+                            <label class="form-check-label" for="featured">
+                                Featured
+                            </label>
+                        </div>
+
+                        <div class="message"></div>
+
+                        <div class="">
+                            <button type="submit" class="btn btn-primary">Update product</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </main>
     <footer class="container-fluid mt-auto bg-primary text-white"></footer>

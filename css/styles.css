@@ -85,6 +85,11 @@ a:hover {
   text-decoration: underline !important;
 }
 
+.navbar .dropdown-item.active {
+  background-color: rgba(247, 247, 247, 0.1) !important;
+  color: #000000 !important;
+}
+
 .search-container {
   max-width: 250px;
   height: 2.2rem;

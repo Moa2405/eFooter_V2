@@ -4,33 +4,15 @@ import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
 import moment from '/../../../node_modules/moment/dist/moment.js';
 
-
 const user = localeStorage.getData(storageKeys.USER_KEY);
 
 const AdminTable = async (products) => {
-    const adminTable = document.querySelector(".admin-table");
 
-
-    adminTable.innerHTML = `
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Created</th>
-                        <th class="table__description" scope="col">Description</th>
-                        <th scope="col">Image</th>
-                    </tr>
-                </thead>
-                <tbody class="table-body"></tbody>
-            </table>
-        </div>`
 
     const adminProducts = document.querySelector(".table-body");
+    adminProducts.innerHTML = "";
 
     products.forEach((product) => {
-
 
         let updateLink = user.admin
             ? `<a href="/admin-update-product.html?id=${product.id}" 

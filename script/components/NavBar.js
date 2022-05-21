@@ -10,7 +10,7 @@ import handleSearch from "../utils/eventListeners/handleSearch.js";
 const NavBar = () => {
 
   window.onload = () => {
-    const searchForm = document.querySelector(".search-container")
+    const searchForm = document.querySelector("#navbar__search-container")
     searchForm.onsubmit = (event) => handleSearch(event)
   }
 
@@ -103,7 +103,8 @@ const NavBar = () => {
               <li class="nav-item">
                 ${productsLink}
               </li>
-              <form class="search-container 
+              <form id="navbar__search-container" class="search-container 
+                shadow
                 bg-light
                 order-1
                 order-lg-3

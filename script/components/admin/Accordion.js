@@ -10,6 +10,8 @@ const adminAccordionContainer = document.querySelector(".accordion");
 
 const AdminAccordion = (products) => {
 
+    adminAccordionContainer.innerHTML = "";
+
     products.forEach((product) => {
 
         let updateLink = user.admin

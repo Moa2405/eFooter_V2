@@ -14,16 +14,15 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <div class="loading__overlay"></div>
-    <div class="navbar-container container-fluid"></div>
-    <main class="container-fluid flex-shrink-0 my-5 p-0 d-flex flex-column gap-5">
+    <div class="navbar-container container-fluid pt-2"></div>
+    <main class="container-fluid flex-shrink-0 my-3 p-0 d-flex flex-column gap-5">
         <div
             class="spinner d-none d-flex fs-5 justify-content-center align-items-center text-primary position-absolute top-0 start-0 bottom-0 end-0 bg-dark opacity-75">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div class="container-lg d-flex flex-column gap-5">
+        <div class="container-lg d-flex flex-column gap-3">
             <div class="container">
                 <h1>Admin panel</h1>
             </div>
@@ -37,8 +36,49 @@
                     </a>
                 </div>
             </section>
+            <div class="container px-0">
+                <form id="admin__table_search" class="search-container
+                    shadow
+                    px-1
+                    bg-light
+                    mx-lg-4
+                    d-flex 
+                    justify-content-around 
+                    align-items-center 
+                    py-0 px-2 
+                    rounded-pill">
+                    <input type="text" id="admin_search-value" required
+                        class="search__input form-control border-light bg-transparent">
+                    <button type="submit" class="search__icon fs-4 bi bi-search bg-transparent"
+                        style="border: none;"></button>
+                </form>
+            </div>
             <div class="message"></div>
-            <section class="admin-table container">
+            <section class="admin-table container ">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="id" scope="col">
+                                    ID <i class="bi bi-caret-down-fill ml-1 fs-6"></i>
+                                </th>
+                                <th class="name" scope="col">
+                                    Name <i class="bi bi-caret-down-fill ml-1 fs-6"></i>
+                                </th>
+                                <th class="created" scope="col">
+                                    Created <i class="bi bi-caret-down-fill ml-1 fs-6"></i>
+                                </th>
+                                <th class="table__description" scope="col">
+                                    Description
+                                </th>
+                                <th scope="col">
+                                    Image
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body"></tbody>
+                    </table>
+                </div>
             </section>
             <section class="admin-accordion container">
                 <div class="accordion accordion-flush" id="accordionAdmin"></div>

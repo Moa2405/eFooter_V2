@@ -27,8 +27,18 @@ const onUpdateProduct = async (event, id) => {
             headers
         });
 
-        if (response.ok) {
+        if (response.status === 200) {
             window.location = "/admin.html";
+        } else {
+
+            const result = await response.json()
+            console.log(result)
+
+            DisplayMessage("danger", result.error.name, ".message");
+
+            document.querySelector(".spinner").classList.add("d-none");
+
+            throw new Error(`Error message; ${result.error.name}, ${result.error.message}`);
         }
 
     } catch (error) {

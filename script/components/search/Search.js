@@ -17,8 +17,8 @@ const Search = (container) => {
     const input = document.createElement("input");
     input.setAttribute("class", "search__input form-control border-light bg-transparent");
     input.setAttribute("list", "datalistOptions");
-    input.setAttribute("id", "search");
-
+    input.setAttribute("required", "");
+    input.setAttribute("id", "navbar__search-value");
 
     const datalist = document.createElement("datalist");
     datalist.setAttribute("id", "datalistOptions");
@@ -38,10 +38,10 @@ const Search = (container) => {
         datalist.appendChild(link);
     })
 
-    container.appendChild(label)
-    container.appendChild(input)
-    container.appendChild(datalist)
-    container.appendChild(icon)
+    container.appendChild(label);
+    container.appendChild(input);
+    container.appendChild(datalist);
+    container.appendChild(icon);
 
 }
 

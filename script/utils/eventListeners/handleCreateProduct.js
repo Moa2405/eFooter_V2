@@ -23,13 +23,10 @@ const handleCrateProduct = async (e) => {
     }
 
     const token = localeStorage.getData(storageKeys.TOKEN_KEY);
-
     const headers = new Headers({ Authorization: `Bearer ${token}` });
 
     const data = Object.fromEntries(originalFormData.entries());
     body.append('data', JSON.stringify(data));
-
-    const url = apiUrls.baseUrl + "/api/products";
 
     try {
 
@@ -37,13 +34,12 @@ const handleCrateProduct = async (e) => {
 
         spinner.classList.remove("d-none");
 
-        const response = await fetch(url, {
+        const response = await fetch(apiUrls.baseUrl + apiUrls.productsUrl, {
             body,
             method: "post",
             enctype,
             headers
         });
-
 
         if (response.status === 200) {
 
@@ -54,17 +50,19 @@ const handleCrateProduct = async (e) => {
             window.location = "/admin.html";
 
         } else {
+
+            const result = await response.json()
+            console.log(result)
+
+            DisplayMessage("danger", result.error.name, ".message");
+
             spinner.classList.add("d-none");
 
-            DisplayMessage("danger", "Some thing went wrong", ".message");
-
-            throw new Error("error");
+            throw new Error(`Error message; ${result.error.name}, ${result.error.message}`);
         }
 
     } catch (error) {
-        console.log(error);
-
-        spinner.classList.add("d-none");
+        console.warn(error);
     }
 }
 

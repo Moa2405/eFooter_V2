@@ -10,6 +10,11 @@
     .active {
         text-decoration: underline !important;
     }
+
+    .dropdown-item.active {
+        background-color: $light  !important;
+        color: #000000 !important;
+    }
 }
 
 .search-container {

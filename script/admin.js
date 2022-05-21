@@ -4,21 +4,47 @@ import Table from "./components/admin/Table.js";
 import Accordion from "./components/admin/Accordion.js";
 import apiUrls from "./utils/api/urls.js";
 import fetchData from "./utils/api/fetchData.js";
+import * as localeStorage from "./storage/localStorage.js";
+import storageKeys from "./storage/storageKeys.js";
 
+const form = document.querySelector("#admin__table_search");
 
-const addProductBtn = document.querySelector(".add-product-btn");
+const orderByName = document.querySelector(".name");
+const orderById = document.querySelector(".id");
+const orderByCreated = document.querySelector(".created");
+
+form.reset()
 
 NavBar()
 Footer()
 
+const handelAdminSearch = (e) => {
+    e.preventDefault()
+
+    console.log("search");
+
+    const value = document.querySelector("#admin_search-value").value.trim().toLowerCase();
+
+    const products = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
+
+    const searchResult = products.filter((p) => p.attributes.name.trim().toLowerCase().includes(value));
+
+    Accordion(searchResult);
+    Table(searchResult);
+}
+
+
+
 const admin = async () => {
-    const products = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl)
+    const products = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
 
     console.log(products)
 
-    Table(products)
+    Table(products);
 
-    Accordion(products)
+    Accordion(products);
+
+    form.addEventListener("submit", handelAdminSearch)
 }
 
 admin()

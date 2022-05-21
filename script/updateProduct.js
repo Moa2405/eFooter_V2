@@ -4,6 +4,7 @@ import Footer from "./components/Footer.js";
 import NavBar from "./components/NavBar.js";
 import apiUrls from "./utils/api/urls.js";
 import handleUpdateProduct from "./utils/eventListeners/handleUpdateProduct.js";
+import moment from "/../node_modules/moment/dist/moment.js";
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
@@ -17,7 +18,8 @@ const updateProduct = async () => {
 
     const productToPopulateForm = allProduct.filter((p) => p.id === parseInt(productId))
 
-    document.querySelector(".update__header").textContent = "Update product ID: " + productId;
+    document.querySelector(".update__header").textContent = "Update product ID " + productId;
+    document.querySelector(".Update__created").textContent = "Created " + moment(productToPopulateForm[0].attributes.createdAt).format("LL");
 
     form.setAttribute("action", `${apiUrls.baseUrl}${apiUrls.productsUrl}/${productId}`);
     form.querySelector("#name").value = `${productToPopulateForm[0].attributes.name}`;
