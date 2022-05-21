@@ -9,13 +9,12 @@
     <meta name="keywords" content="efooter, sneakers, shoes, nike, adidas, vans, gucci, footwear" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>Admin Panel | eFooter</title>
 </head>
 
 <body class="d-flex flex-column h-100">
     <div class="navbar-container container-fluid pt-2"></div>
-    <main class="container-fluid flex-shrink-0 my-3 p-0 d-flex flex-column gap-5">
+    <main class="container-fluid flex-shrink-0 my-3 p-0 d-flex flex-column gap-3 py-5">
         <div
             class="spinner d-none d-flex fs-5 justify-content-center align-items-center text-primary position-absolute top-0 start-0 bottom-0 end-0 bg-dark opacity-75">
             <div class="spinner-border" role="status">
@@ -49,8 +48,13 @@
                     rounded-pill">
                     <input type="text" id="admin_search-value" required
                         class="search__input form-control border-light bg-transparent">
-                    <button type="submit" class="search__icon fs-4 bi bi-search bg-transparent"
-                        style="border: none;"></button>
+                    <button type="submit" class="search__icon pb-1 fs-4 bg-transparent" style="border: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
                 </form>
             </div>
             <div class="message"></div>
@@ -60,13 +64,13 @@
                         <thead>
                             <tr>
                                 <th class="id" scope="col">
-                                    ID <i class="bi bi-caret-down-fill ml-1 fs-6"></i>
+                                    ID
                                 </th>
                                 <th class="name" scope="col">
-                                    Name <i class="bi bi-caret-down-fill ml-1 fs-6"></i>
+                                    Name
                                 </th>
                                 <th class="created" scope="col">
-                                    Created <i class="bi bi-caret-down-fill ml-1 fs-6"></i>
+                                    Created
                                 </th>
                                 <th class="table__description" scope="col">
                                     Description

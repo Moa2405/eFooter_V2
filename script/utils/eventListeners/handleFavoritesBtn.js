@@ -4,13 +4,12 @@ import storageKeys from "../../storage/storageKeys.js"
 const handleFavoritesBtn = (items) => {
     items.forEach((item) => {
         item.onclick = (event) => {
-            event.stopPropagation()
             const id = item.dataset.id;
 
-            item.classList.toggle("bi-heart-fill");
-            item.classList.toggle("text-primary");
+            item.classList.toggle("toggle-heart-fill");
+            item.classList.toggle("toggle-heart");
 
-            item.classList.toggle("bi-heart");
+            console.log(item)
 
             const allData = localStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 

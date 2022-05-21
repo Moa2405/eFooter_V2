@@ -15,11 +15,16 @@
         background-color: $light  !important;
         color: #000000 !important;
     }
+
+    .logo-span {
+        margin-right: -5px;
+    }
 }
 
 .search-container {
     max-width: 250px;
     height: 2.2rem;
+    background-color: $primary-300  !important;
 
     button {
         color: black !important;

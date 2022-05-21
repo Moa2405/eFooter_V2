@@ -17,7 +17,6 @@ const ProductCard = (products) => {
       const name = product.attributes.name;
       const price = product.attributes.price;
 
-      let btnCssClass = "bi bi-heart";
 
       const itemsInFavorites = localStorage.getData(storageKeys.FAV_KEY);
 
@@ -25,8 +24,10 @@ const ProductCard = (products) => {
         (item) => item.id === id
       );
 
+      let btnCssClass = "toggle-heart";
+
       if (doesItemExist) {
-        btnCssClass = "bi bi-heart-fill text-primary";
+        btnCssClass = "toggle-heart-fill";
       }
 
       const cardContainer = document.createElement("div");
@@ -36,13 +37,15 @@ const ProductCard = (products) => {
       cardWrapper.setAttribute("class", "card p-0 bg-transparent text-dark h-100 position-relative shadow");
 
       const cardFavBtn = document.createElement("button");
-      cardFavBtn.setAttribute("class", "favorites__btn_container btn btn-light shadow-sm rounded-circle");
+      cardFavBtn.setAttribute("class", `favorites__btn ${btnCssClass} btn shadow-sm rounded-circle`);
       cardFavBtn.setAttribute("data-id", id);
       cardFavBtn.setAttribute("type", "button");
 
-      const favIcon = document.createElement("i");
-      favIcon.setAttribute("class", `favorites__btn top-0 start-50 fs-4 translate-middle ${btnCssClass}`);
-      favIcon.setAttribute("data-id", id);
+      // const favIcon = document.createElement("img");
+      // favIcon.setAttribute("class", `favorites__btn ${btnCssClass}`)
+      // favIcon.setAttribute("data-id", id);
+      // favIcon.setAttribute("src", "../../../public/heart.svg");
+      // favIcon.setAttribute("alt", "Add to favorites");
 
       const cardImg = document.createElement("img");
       cardImg.setAttribute("src", apiUrls.baseUrl + image);
@@ -65,21 +68,19 @@ const ProductCard = (products) => {
       cardPrice.textContent = `${price},00 kr`;
 
       const cardCtaBtn = document.createElement("button");
-      cardCtaBtn.setAttribute("class", "btn btn-primary");
+      cardCtaBtn.setAttribute("class", "product-card__cta btn btn-primary text-white");
       cardCtaBtn.setAttribute("type", "button");
+      cardCtaBtn.textContent = "Add to cart"
 
-      const ctaIcon = document.createElement("i");
-      ctaIcon.setAttribute("class", "bi bi-cart3 fs-4");
 
       const cardPriceNameContainer = document.createElement("div")
       const cardCtaContainer = document.createElement("div")
 
-      cardFavBtn.appendChild(favIcon);
+      // cardFavBtn.appendChild(favIcon);
 
       cardPriceNameContainer.appendChild(cardTitle);
       cardPriceNameContainer.appendChild(cardPrice);
 
-      cardCtaBtn.appendChild(ctaIcon);
       cardCtaContainer.appendChild(cardCtaBtn);
 
       cardBody.appendChild(cardPriceNameContainer);

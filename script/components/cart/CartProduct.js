@@ -54,9 +54,9 @@ const CartProduct = (itemsInCart) => {
                             </div>
                             
                             <div class="container">
-                                <p class="card-text my-1" data-id="${item.id}">
-                                    <small class="text-muted">Delete <i class="cart__product_delete-btn bi bi-trash" data-id="${item.id}"></i></small>
-                                </p>
+                                <button class="cart__product_delete-btn bg-transparent card-text my-1" data-id="${item.id}">
+                                    
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -65,12 +65,12 @@ const CartProduct = (itemsInCart) => {
         });
 
         const amountOfItem = document.querySelectorAll("select");
-        const deleteProductFromCartBtn = document.querySelectorAll(".cart__product_delete-btn");
-        console.log(deleteProductFromCartBtn)
 
         amountOfItem.forEach((e) => {
             e.onchange = updateAmountOfItemInCart;
         })
+
+        const deleteProductFromCartBtn = document.querySelectorAll(".cart__product_delete-btn");
 
         const cartList = localStorage.getData(storageKeys.CART_KEY);
 

@@ -4,9 +4,13 @@ import storageKeys from "../../storage/storageKeys.js";
 
 const Search = (container) => {
 
-    const icon = document.createElement("button")
-    icon.setAttribute("class", "search__icon bi bi-search bg-transparent")
-    icon.setAttribute("type", "submit")
+    const submitBtn = document.createElement("button")
+    submitBtn.setAttribute("class", "search__icon bi bi-search pb-1 bg-transparent")
+    submitBtn.setAttribute("type", "submit")
+
+    const icon = document.createElement("img");
+    icon.setAttribute("src", "../../../public/search.svg");
+    icon.setAttribute("alt", "search");
 
     const label = document.createElement("label");
     label.setAttribute("for", "search");
@@ -37,11 +41,11 @@ const Search = (container) => {
 
         datalist.appendChild(link);
     })
-
+    submitBtn.appendChild(icon)
     container.appendChild(label);
     container.appendChild(input);
     container.appendChild(datalist);
-    container.appendChild(icon);
+    container.appendChild(submitBtn);
 
 }
 

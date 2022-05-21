@@ -58,11 +58,6 @@
   display: none;
 }
 
-.admin-table i {
-  cursor: pointer;
-  font-size: 1.5em;
-}
-
 .admin-table .table__description {
   max-width: 200px;
   white-space: nowrap;
@@ -83,5 +78,13 @@
   .admin-table {
     display: block;
   }
+}
+
+.admin__delete_product {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-image: url("../../public/trash3.svg");
+  background-repeat: no-repeat;
 }
 /*# sourceMappingURL=admin.css.map */

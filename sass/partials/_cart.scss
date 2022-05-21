@@ -11,6 +11,12 @@
     }
 
     .cart__product_delete-btn {
+        height: 30px;
+        width: 30px;
+        border: none;
+        background-image: url("../../public/trash3.svg");
+        background-repeat: no-repeat;
+
         cursor: pointer;
     }
 

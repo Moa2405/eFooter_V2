@@ -1,2 +1,13 @@
+@import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/tables";
+
 @import "./partials/accordion";
 @import "./partials/table";
+
+.admin__delete_product {
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-image: url("../../public/trash3.svg");
+    background-repeat: no-repeat;
+}

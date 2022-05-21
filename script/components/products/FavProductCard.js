@@ -26,12 +26,12 @@ const FavProductCard = (products) => {
     cardWrapper.setAttribute("class", "card h-100 bg-transparent position-relative shadow");
 
     const cardFavBtn = document.createElement("button");
-    cardFavBtn.setAttribute("class", "favorites__btn_container btn btn-light shadow-sm rounded-circle");
+    cardFavBtn.setAttribute("class", "favorites__btn btn btn-light shadow rounded-circle");
     cardFavBtn.setAttribute("data-id", id);
     cardFavBtn.setAttribute("type", "button");
 
-    const favIcon = document.createElement("i");
-    favIcon.setAttribute("class", "favorites__btn top-0 start-50 translate-middle bi bi-trash");
+    const favIcon = document.createElement("img");
+    favIcon.setAttribute("src", "../../../public/trash3.svg");
     favIcon.setAttribute("data-id", id);
 
     const cardImg = document.createElement("img");

@@ -2,9 +2,7 @@ import apiUrls from "../../utils/api/urls.js";
 import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
-import moment from 'moment';
-
-// import moment from '/../../../node_modules/moment/dist/moment.js';
+import moment from '/../../../node_modules/moment/dist/moment.js';
 
 const user = localeStorage.getData(storageKeys.USER_KEY);
 
@@ -19,7 +17,10 @@ const AdminAccordion = (products) => {
         let updateLink = user.admin
             ? `<a href="/admin-update-product.html?id=${product.id}" 
                 class="nav-link text-black">
-                <i class="bi bi-pencil-square"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
                </a>`
             : `<a href="/sign-in.html" 
                 class="nav-link text-black">
@@ -65,7 +66,7 @@ const AdminAccordion = (products) => {
                             <div><strong>Description</strong></div>
                             <div>${product.attributes.description}</div>
                         </div>
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-column flex-sm-row gap-3 gap-sm-4">
                             <div>
                                 <div><strong>Price:</strong></div>
                                 <div>${product.attributes.price}.00 kr</div>
@@ -75,16 +76,16 @@ const AdminAccordion = (products) => {
                                 <div>${moment(product.attributes.createdAt).format("LLL")}</div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
                             ${updateLink}
-                            <i class="bi bi-trash" data-id=${product.id} style="color: red;"></i>
+                            <button class="admin__delete_product pt-2 bg-transparent" data-id=${product.id} style="background-position: center;"></button>
                         </div> 
                     </div>
                 </div>
             </div>`
     })
 
-    const deleteProductBtn = document.querySelectorAll(".bi-trash");
+    const deleteProductBtn = document.querySelectorAll(".admin__delete_product");
 
 
     deleteProductBtn.forEach((btn) => {

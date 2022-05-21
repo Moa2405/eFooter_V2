@@ -3,7 +3,6 @@ import Footer from "./components/Footer.js";
 import * as localStorage from "./storage/localStorage.js";
 import storageKeys from "./storage/storageKeys.js";
 import FavProductCard from "./components/products/FavProductCard.js";
-import deleteItemFromList from "./utils/deleteItemFromList.js";
 
 
 NavBar()
