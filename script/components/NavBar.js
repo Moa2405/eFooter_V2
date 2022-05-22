@@ -9,10 +9,11 @@ import handleSearch from "../utils/eventListeners/handleSearch.js";
 
 const NavBar = () => {
 
-  window.onload = () => {
-    const searchForm = document.querySelectorAll(".search-container");
-    searchForm.forEach((form) => onsubmit = (event) => handleSearch(event))
-  }
+  // window.onload = () => {
+  //   const searchForm = document.querySelectorAll(".search-container");
+  //   console.log(searchContainer);
+  //   searchForm.forEach((form) => onsubmit = (event) => handleSearch(event));
+  // }
 
   const { pathname } = document.location;
 
@@ -112,6 +113,8 @@ const NavBar = () => {
                 <li class="nav-item">
                   ${productsLink}
                 </li>
+              </ul>
+              <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center">
                 <div class="d-none d-lg-block">
                   <form id="" class="search-container 
                     shadow-sm
@@ -123,8 +126,6 @@ const NavBar = () => {
                     rounded-pill">
                   </form>
                 </div>
-              </ul>
-              <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center">
                 <li class="nav-item">
                   ${signUpLink}
                 </li>
@@ -144,8 +145,17 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
-        <div class="cloned-search-bar__container container-lg d-block d-lg-none d-flex justify-content-center py-2">
-          
+        <div class="cloned-search-bar__container container-lg d-block d-lg-none d-flex py-2">
+          <form id="" class="search-container 
+            shadow-sm
+            mx-lg-4
+            d-flex 
+            justify-content-around 
+            align-items-center 
+            py-0 px-2 
+            rounded-pill"
+          >
+          </form>
         </div>
       </div>`
     ;
@@ -155,13 +165,11 @@ const NavBar = () => {
     logoutLinkBtn.addEventListener("click", handelLogout);
   }
 
-  const searchContainer = document.querySelector(".search-container");
-  Search(searchContainer)
+  const searchForms = document.querySelectorAll(".search-container");
 
-  const clonedSearchBar = searchContainer.cloneNode(true);
+  searchForms.forEach((form) => Search(form));
 
-  const clonedSearchBarContainer = document.querySelector(".cloned-search-bar__container");
-  clonedSearchBarContainer.appendChild(clonedSearchBar);
+  searchForms.forEach((form) => form.addEventListener("submit", handleSearch));
 
   updateCartIcon();
 };

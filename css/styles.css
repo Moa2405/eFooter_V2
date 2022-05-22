@@ -168,6 +168,14 @@ a:hover {
   color: #000000 !important;
 }
 
+.icon-container {
+  height: 50px;
+  aspect-ratio: 1/1;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
 *,
 *::before,
 *::after {

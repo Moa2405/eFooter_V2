@@ -37,7 +37,7 @@ const ProductCard = (products) => {
       cardWrapper.setAttribute("class", "card p-0 bg-transparent text-dark h-100 position-relative shadow");
 
       const cardFavBtn = document.createElement("button");
-      cardFavBtn.setAttribute("class", `favorites__btn ${btnCssClass} btn shadow-sm rounded-circle`);
+      cardFavBtn.setAttribute("class", `favorites__btn ${btnCssClass} btn shadow rounded-circle`);
       cardFavBtn.setAttribute("data-id", id);
       cardFavBtn.setAttribute("type", "button");
 

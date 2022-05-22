@@ -5,9 +5,11 @@ import NavBar from "./components/NavBar.js";
 import Footer from "./components/Footer.js";
 import handleFavoritesBtn from "./utils/eventListeners/handleFavoritesBtn.js";
 import DisplayMessage from "./components/DisplayMessage.js";
+import * as handelFilter from "./utils/eventListeners/handelFilter.js";
 
 const params = new URLSearchParams(window.location.search);
 const search = params.get("search");
+
 
 const products = () => {
 
@@ -45,3 +47,4 @@ const products = () => {
 };
 
 products();
+

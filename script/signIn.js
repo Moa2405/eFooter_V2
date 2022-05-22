@@ -12,12 +12,13 @@ const password = document.querySelector("#password");
 const checkboxPassword = document.querySelector("#checkbox-password");
 const messageContainer = document.querySelector(".message-container");
 
-const form = document.querySelector(".login-form");
+const form = document.querySelector("#login-form");
 
 NavBar();
 Footer()
 
 checkboxPassword.addEventListener("change", showHidePassword);
+checkboxPassword.checked = false;
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -37,9 +38,7 @@ form.addEventListener("submit", function (event) {
 const login = async (email, password) => {
     const data = JSON.stringify({ identifier: email, password: password });
 
-    const url = apiUrls.baseUrl + apiUrls.loginUrl;
-
-    const loggedInUser = await handelLogin(data, url);
+    const loggedInUser = await handelLogin(data, apiUrls.baseUrl + apiUrls.loginUrl);
 
     if (!loggedInUser.user) {
         console.warn(loggedInUser);
@@ -51,6 +50,6 @@ const login = async (email, password) => {
     } else {
         localStorage.saveData(storageKeys.TOKEN_KEY, loggedInUser.jwt);
         localStorage.saveData(storageKeys.USER_KEY, loggedInUser.user);
-        window.location.href = "/";
+        // window.location.href = "/";
     }
 };
