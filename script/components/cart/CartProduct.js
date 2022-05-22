@@ -86,7 +86,7 @@ const CartProduct = (itemsInCart) => {
     } else {
         DisplayMessage(
             "warning",
-            "You have no products in yor cart",
+            "You have no products in your cart",
             ".cart__products_container"
         );
     }

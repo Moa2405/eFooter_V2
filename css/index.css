@@ -1,4 +1,12 @@
 .hero {
   background: linear-gradient(150deg, #8000b1 30%, #67c9c0 75%);
 }
+
+.header__container {
+  background-color: #7dfff2;
+}
+
+.featured__container_fluid {
+  background-color: #03DAC5;
+}
 /*# sourceMappingURL=index.css.map */

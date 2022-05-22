@@ -41,7 +41,7 @@ const ProductDetail = (product) => {
 
     const productPrice = document.createElement("p");
     productPrice.setAttribute("class", "text-bold");
-    productPrice.textContent = "Price: " + price;
+    productPrice.textContent = "Price: " + `${price}.00 kr`;
 
     productDetailContainer.querySelector(".product-detail__attributes_container").appendChild(productName);
     productDetailContainer.querySelector(".product-detail__attributes_container").appendChild(productDescription);

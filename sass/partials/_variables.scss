@@ -3,6 +3,7 @@ $primary-500: #962bbf;
 $primary-400: #df8dff;
 $primary-300: #edc1ff;
 
+$gray: #f7f7f71a;
 
 $secondary-600: #018786;
 $secondary-500: #03DAC5;
@@ -11,9 +12,10 @@ $secondary-300: #b3fff7;
 
 $primary: $primary-500;
 $secondary: $secondary-500;
-$light: rgba(247, 247, 247, 0.1);
+// $light: #f7f7f71a;
 
-$gradients: (primaryBackgroundGradient: linear-gradient(150deg,
+$gradients: (
+    primaryBackgroundGradient: linear-gradient(150deg,
         rgba(128, 0, 177, 1) 30%,
         rgba(103, 201, 192, 1) 75%),
     secondaryBackgroundGradient: linear-gradient(320deg,

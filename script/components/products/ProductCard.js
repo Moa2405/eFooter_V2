@@ -31,7 +31,7 @@ const ProductCard = (products) => {
       }
 
       const cardContainer = document.createElement("div");
-      cardContainer.setAttribute("class", "card__container col-sm-6 col-lg-4 mb-3");
+      cardContainer.setAttribute("class", "card__container col-sm-6 col-lg-4 mb-4");
 
       const cardWrapper = document.createElement("article");
       cardWrapper.setAttribute("class", "card p-0 bg-transparent text-dark h-100 position-relative shadow");
@@ -54,17 +54,17 @@ const ProductCard = (products) => {
       cardImg.setAttribute("alt", name);
 
       const cardBody = document.createElement("div");
-      cardBody.setAttribute("class", "card-body d-flex justify-content-between align-items-center justify-self-end");
+      cardBody.setAttribute("class", "card-body d-flex bg-light justify-content-between align-items-center justify-self-end");
 
       const cardLink = document.createElement("a");
       cardLink.setAttribute("href", `product-detail.html?id=${id}`);
 
-      const cardTitle = document.createElement("h5");
+      const cardTitle = document.createElement("p");
       cardTitle.setAttribute("class", "card-title");
       cardTitle.textContent = name;
 
       const cardPrice = document.createElement("p");
-      cardPrice.setAttribute("class", "card-text");
+      cardPrice.setAttribute("class", "card-text fw-bold");
       cardPrice.textContent = `${price},00 kr`;
 
       const cardCtaBtn = document.createElement("button");

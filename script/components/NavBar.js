@@ -10,8 +10,8 @@ import handleSearch from "../utils/eventListeners/handleSearch.js";
 const NavBar = () => {
 
   window.onload = () => {
-    const searchForm = document.querySelector("#navbar__search-container")
-    searchForm.onsubmit = (event) => handleSearch(event)
+    const searchForm = document.querySelectorAll(".search-container");
+    searchForm.forEach((form) => onsubmit = (event) => handleSearch(event))
   }
 
   const { pathname } = document.location;
@@ -87,7 +87,7 @@ const NavBar = () => {
 
   container.innerHTML = `
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light py-3">
           <div class="container-lg d-flex justify-content-between">
             <a class="navbar-brand fs-3 fw-bold border border-3 border-dark px-1 py-0" 
               href="/index.html"
@@ -113,8 +113,8 @@ const NavBar = () => {
                   ${productsLink}
                 </li>
                 <div class="d-none d-lg-block">
-                  <form id="navbar__search-container" class="search-container 
-                    shadow
+                  <form id="" class="search-container 
+                    shadow-sm
                     mx-lg-4
                     d-flex 
                     justify-content-around 

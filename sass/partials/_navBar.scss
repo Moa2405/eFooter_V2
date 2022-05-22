@@ -24,7 +24,8 @@
 .search-container {
     max-width: 250px;
     height: 2.2rem;
-    background-color: $primary-300  !important;
+    background-color: $gray  !important;
+    border: 1px solid $primary-300;
 
     button {
         color: black !important;
@@ -61,7 +62,6 @@
 .cart__count_container {
     aspect-ratio: 1/1;
     height: 20px;
-
     place-items: center;
     font-size: 12px;
     position: absolute;

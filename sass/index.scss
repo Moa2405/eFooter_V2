@@ -3,3 +3,11 @@
 .hero {
     background: getGradients(primaryBackgroundGradient);
 }
+
+.header__container {
+    background-color: $secondary-400;
+}
+
+.featured__container_fluid {
+    background-color: $secondary-500;
+}
