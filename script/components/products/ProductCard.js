@@ -72,9 +72,9 @@ const ProductCard = (products) => {
       cardCtaBtn.setAttribute("type", "button");
       cardCtaBtn.textContent = "Add to cart"
 
-
-      const cardPriceNameContainer = document.createElement("div")
       const cardCtaContainer = document.createElement("div")
+      cardCtaContainer.setAttribute("class", "align-self-end")
+      const cardPriceNameContainer = document.createElement("div")
 
       // cardFavBtn.appendChild(favIcon);
 
