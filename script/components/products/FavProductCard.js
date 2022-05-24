@@ -87,7 +87,6 @@ const FavProductCard = (products) => {
   })
 
   const removeFromFavBtn = document.querySelectorAll(".favorites__btn");
-  console.log(removeFromFavBtn)
 
   removeFromFavBtn.forEach((btn) => {
     btn.onclick = (event) => {

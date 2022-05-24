@@ -11,8 +11,6 @@ const updateAmountOfItemInCart = (event) => {
 
     const targetItem = itemsInCart.findIndex((item) => item.id === id);
 
-    console.log(targetItem)
-
     const newAmount = itemsInCart[targetItem].attributes.price * value;
 
     itemsInCart[targetItem].totalAmount = newAmount;
@@ -21,7 +19,6 @@ const updateAmountOfItemInCart = (event) => {
     localStorage.saveData(storageKeys.CART_KEY, itemsInCart);
 
     const newCart = localStorage.getData(storageKeys.CART_KEY);
-    console.log(newCart)
 
     CartProduct(newCart)
     handleCartTotalAmount(newCart)

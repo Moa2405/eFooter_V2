@@ -21,8 +21,6 @@ Footer()
 const handelAdminSearch = (e) => {
     e.preventDefault()
 
-    console.log("search");
-
     const value = document.querySelector("#admin_search-value").value.trim().toLowerCase();
 
     const products = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
@@ -36,15 +34,21 @@ const handelAdminSearch = (e) => {
 
 
 const admin = async () => {
-    const products = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
 
-    console.log(products)
+    const user = localeStorage.getData(storageKeys.USER_KEY);
 
-    Table(products);
+    if (user.admin) {
 
-    Accordion(products);
+        const products = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
 
-    form.addEventListener("submit", handelAdminSearch)
+        Table(products);
+
+        Accordion(products);
+
+        form.addEventListener("submit", handelAdminSearch)
+    } else {
+        window.location = "/sign-in.html";
+    }
 }
 
 admin()

@@ -66,7 +66,6 @@ const signUpUser = async (data) => {
 
     try {
         const loggedInUser = await handelSignUp(data, url);
-        console.log(loggedInUser)
 
         if (!loggedInUser.user) {
             DisplayMessage(

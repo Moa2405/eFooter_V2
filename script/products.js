@@ -31,7 +31,7 @@ const products = () => {
             const favBtn = document.querySelectorAll(".favorites__btn");
             handleFavoritesBtn(favBtn);
 
-            document.querySelector("h2").textContent = "Search result";
+            document.querySelector("h1").textContent = "Search result";
             document.title = "Search result | eFooter";
         };
 

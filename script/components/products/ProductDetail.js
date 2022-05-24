@@ -1,5 +1,4 @@
 
-import addItemToCart from "../../utils/eventListeners/handleAddItemToCart.js";
 import apiUrls from "../../utils/api/urls.js";
 
 const ProductDetail = (product) => {

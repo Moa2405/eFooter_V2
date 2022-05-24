@@ -10,8 +10,6 @@ const handleAddItemToCart = (quantity, btn) => {
 
     btn.onclick = (event) => {
 
-        console.log(quantity.value)
-
         const id = parseInt(event.target.dataset.id);
         const amountOfItem = parseInt(quantity.value);
 

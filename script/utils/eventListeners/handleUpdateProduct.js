@@ -32,7 +32,6 @@ const onUpdateProduct = async (event, id) => {
         } else {
 
             const result = await response.json()
-            console.log(result)
 
             DisplayMessage("danger", result.error.name, ".message");
 

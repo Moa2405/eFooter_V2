@@ -14,58 +14,65 @@ NavBar()
 
 const updateProduct = async () => {
 
-    const allProduct = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
+    const user = localeStorage.getData(storageKeys.USER_KEY);
 
-    const productToPopulateForm = allProduct.filter((p) => p.id === parseInt(productId))
+    if (user.admin) {
 
-    document.querySelector(".update__header").textContent = "Update product ID " + productId;
-    document.querySelector(".Update__created").textContent = "Created " + moment(productToPopulateForm[0].attributes.createdAt).format("LL");
+        const allProduct = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 
-    form.setAttribute("action", `${apiUrls.baseUrl}${apiUrls.productsUrl}/${productId}`);
-    form.querySelector("#name").value = `${productToPopulateForm[0].attributes.name}`;
-    form.querySelector("#description").value = `${productToPopulateForm[0].attributes.description}`;
-    form.querySelector("#price").value = `${productToPopulateForm[0].attributes.price}`;
+        const productToPopulateForm = allProduct.filter((p) => p.id === parseInt(productId))
 
-    const token = localeStorage.getData(storageKeys.TOKEN_KEY);
+        document.querySelector(".update__header").textContent = "Update product ID " + productId;
+        document.querySelector(".Update__created").textContent = "Created " + moment(productToPopulateForm[0].attributes.createdAt).format("LL");
 
-    const headers = new Headers({ Authorization: `Bearer ${token}` });
+        form.setAttribute("action", `${apiUrls.baseUrl}${apiUrls.productsUrl}/${productId}`);
+        form.querySelector("#name").value = `${productToPopulateForm[0].attributes.name}`;
+        form.querySelector("#description").value = `${productToPopulateForm[0].attributes.description}`;
+        form.querySelector("#price").value = `${productToPopulateForm[0].attributes.price}`;
 
-    const response = await fetch(apiUrls.uploadedMedia, headers);
+        const token = localeStorage.getData(storageKeys.TOKEN_KEY);
 
-    const result = await response.json();
-    console.log(result)
+        const headers = new Headers({ Authorization: `Bearer ${token}` });
 
-    result.forEach((i) => {
+        const response = await fetch(apiUrls.uploadedMedia, headers);
 
-        const formCheck = document.createElement("div");
-        formCheck.setAttribute("class", "form-check");
+        const result = await response.json();
 
-        const input = document.createElement("input");
-        input.setAttribute("class", "form-check-input");
-        input.setAttribute("type", "radio");
-        input.setAttribute("id", i.id);
-        input.setAttribute("name", "image");
-        input.setAttribute("value", i.id);
+        result.forEach((i) => {
 
-        const label = document.createElement("label");
-        label.setAttribute("class", "form-check-label");
-        label.setAttribute("for", i.id);
+            const formCheck = document.createElement("div");
+            formCheck.setAttribute("class", "form-check");
 
-        const img = document.createElement("img");
-        img.setAttribute("class", "img-thumbnail shadow");
-        img.setAttribute("src", i.formats ? apiUrls.baseUrl + i.formats.thumbnail.url : "#");
-        img.setAttribute("alt", i.name);
-        img.setAttribute("height", "100px");
-        img.setAttribute("width", "100px");
+            const input = document.createElement("input");
+            input.setAttribute("class", "form-check-input");
+            input.setAttribute("type", "radio");
+            input.setAttribute("id", i.id);
+            input.setAttribute("name", "image");
+            input.setAttribute("value", i.id);
 
-        formCheck.appendChild(input);
-        label.appendChild(img);
-        formCheck.appendChild(label);
+            const label = document.createElement("label");
+            label.setAttribute("class", "form-check-label");
+            label.setAttribute("for", i.id);
 
-        document.querySelector(".img-uploads").appendChild(formCheck);
-    })
+            const img = document.createElement("img");
+            img.setAttribute("class", "img-thumbnail shadow");
+            img.setAttribute("src", i.formats ? apiUrls.baseUrl + i.formats.thumbnail.url : "#");
+            img.setAttribute("alt", i.name);
+            img.setAttribute("height", "100px");
+            img.setAttribute("width", "100px");
 
-    form.onsubmit = (event) => handleUpdateProduct(event, productId);
+            formCheck.appendChild(input);
+            label.appendChild(img);
+            formCheck.appendChild(label);
+
+            document.querySelector(".img-uploads").appendChild(formCheck);
+        })
+
+        form.onsubmit = (event) => handleUpdateProduct(event, productId);
+    } else {
+        window.location = "/sign-in.html";
+    }
+
 }
 
 updateProduct()

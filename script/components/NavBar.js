@@ -9,12 +9,6 @@ import handleSearch from "../utils/eventListeners/handleSearch.js";
 
 const NavBar = () => {
 
-  // window.onload = () => {
-  //   const searchForm = document.querySelectorAll(".search-container");
-  //   console.log(searchContainer);
-  //   searchForm.forEach((form) => onsubmit = (event) => handleSearch(event));
-  // }
-
   const { pathname } = document.location;
 
   const container = document.querySelector(".navbar-container");

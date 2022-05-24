@@ -9,8 +9,6 @@ const handleFavoritesBtn = (items) => {
             item.classList.toggle("toggle-heart-fill");
             item.classList.toggle("toggle-heart");
 
-            console.log(item)
-
             const allData = localStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 
             const targetItem = allData.find(
@@ -28,17 +26,12 @@ const handleFavoritesBtn = (items) => {
 
                 localStorage.saveData(storageKeys.FAV_KEY, currentDataList);
 
-                const newData = localStorage.getData(storageKeys.FAV_KEY)
-                console.log(newData)
-
             } else {
                 const newListData = currentDataList.filter(
                     (item) => item.id !== parseInt(id)
                 );
 
                 localStorage.saveData(storageKeys.FAV_KEY, newListData);
-                const newData = localStorage.getData(storageKeys.FAV_KEY)
-                console.log(newData)
             }
         };
     });

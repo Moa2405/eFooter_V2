@@ -50,6 +50,6 @@ const login = async (email, password) => {
     } else {
         localStorage.saveData(storageKeys.TOKEN_KEY, loggedInUser.jwt);
         localStorage.saveData(storageKeys.USER_KEY, loggedInUser.user);
-        // window.location.href = "/";
+        window.location.href = "/";
     }
 };

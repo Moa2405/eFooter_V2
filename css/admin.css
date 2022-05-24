@@ -87,4 +87,15 @@
   background-image: url("../../public/trash3.svg");
   background-repeat: no-repeat;
 }
+
+#admin__table_search {
+  max-width: 250px;
+  height: 2.2rem;
+  background-color: #f7f7f71a !important;
+  border: 1px solid #edc1ff;
+}
+
+#admin__table_search button {
+  color: black !important;
+}
 /*# sourceMappingURL=admin.css.map */

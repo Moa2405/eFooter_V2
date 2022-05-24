@@ -1,7 +1,6 @@
 import apiUrls from "../../utils/api/urls.js";
 import * as localStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
-import handleFavoritesBtn from "../../utils/eventListeners/handleFavoritesBtn.js";
 import DisplayMessage from "../DisplayMessage.js";
 
 const ProductCard = (products) => {
@@ -40,12 +39,6 @@ const ProductCard = (products) => {
       cardFavBtn.setAttribute("class", `favorites__btn ${btnCssClass} btn shadow rounded-circle`);
       cardFavBtn.setAttribute("data-id", id);
       cardFavBtn.setAttribute("type", "button");
-
-      // const favIcon = document.createElement("img");
-      // favIcon.setAttribute("class", `favorites__btn ${btnCssClass}`)
-      // favIcon.setAttribute("data-id", id);
-      // favIcon.setAttribute("src", "../../../public/heart.svg");
-      // favIcon.setAttribute("alt", "Add to favorites");
 
       const cardImg = document.createElement("img");
       cardImg.setAttribute("src", apiUrls.baseUrl + image);

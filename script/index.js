@@ -18,12 +18,6 @@ const app = async () => {
     const spinner = document.querySelector(".spinner")
     spinner.classList.remove("d-none")
 
-    const dataInStorage = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
-
-    // <----this will run only once & as long as localStorage is empty--->
-    // if (!dataInStorage.length) {
-    // }
-
     const allProducts = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
     const hero = await fetchData(apiUrls.baseUrl + apiUrls.heroSectionUrl);
     const featuredProducts = await fetchDataByCategory(apiUrls.baseUrl + apiUrls.featuredUrl);

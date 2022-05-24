@@ -15,8 +15,6 @@ const handelLoginSignUp = async (data, url) => {
         const response = await fetch(url, options);
         const json = await response.json();
 
-        console.log(json)
-
         if (!json.statusCode === 200) {
             throw new Error(
                 `Status code: ${json.statusCode}, Error: ${json.error}, Message: ${json.message[0].messages[0].message}`
