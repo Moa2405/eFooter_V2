@@ -17,7 +17,7 @@ This project is a simple e-commerce website for selling shoes. It has a home pag
 
 ## Built With
 
-- [Html]
+- Html
 - [Bootstrap](https://getbootstrap.com)
 
 ## Getting Started
@@ -45,8 +45,5 @@ To contribute to this project, follow these steps:
 3. Make your changes and commit them: `git commit -m '<commit_message>'`
 
 ## Contact
-
-This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
-
 
 [My LinkedIn page](https://www.linkedin.com/in/mohamed-mokadem-9a9290242/)
