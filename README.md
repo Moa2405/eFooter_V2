@@ -1,4 +1,4 @@
-# Your project title
+# E-commerce website for selling shoes with an admin panel
 
 ![image](/public/eFooter.jpg)
 
