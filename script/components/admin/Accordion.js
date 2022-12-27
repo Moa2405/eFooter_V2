@@ -2,7 +2,7 @@ import apiUrls from "../../utils/api/urls.js";
 import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
-import moment from '/../../../node_modules/moment/dist/moment.js';
+import formatDate from "../../utils/formatDate.js";
 
 const user = localeStorage.getData(storageKeys.USER_KEY);
 
@@ -73,7 +73,7 @@ const AdminAccordion = (products) => {
                             </div>
                             <div>
                                 <div><strong>Created:</strong></div>
-                                <div>${moment(product.attributes.createdAt).format("LLL")}</div>
+                                <div>${formatDate(product.attributes.createdAt)}</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-5">
