@@ -25,7 +25,7 @@ const handelAdminSearch = (e) => {
 
     const products = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 
-    const searchResult = products.filter((p) => p.attributes.name.trim().toLowerCase().includes(value));
+    const searchResult = products.filter((p) => p.attributes.title.trim().toLowerCase().includes(value));
 
     Accordion(searchResult);
     Table(searchResult);

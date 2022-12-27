@@ -16,7 +16,8 @@ const FavProductCard = (products) => {
 
     const { id } = product;
     const image = product.attributes.image.data.attributes.url;
-    const name = product.attributes.name;
+    const alt = product.attributes.image.data.attributes.alternativeText;
+    const name = product.attributes.title;
     const price = product.attributes.price;
 
     const cardContainer = document.createElement("div");
@@ -35,10 +36,10 @@ const FavProductCard = (products) => {
     favIcon.setAttribute("data-id", id);
 
     const cardImg = document.createElement("img");
-    cardImg.setAttribute("src", apiUrls.baseUrl + image);
+    cardImg.setAttribute("src", image);
     cardImg.setAttribute("loading", "lazy");
     cardImg.setAttribute("class", "card-img-top");
-    cardImg.setAttribute("alt", name);
+    cardImg.setAttribute("alt", alt);
 
     const cardBody = document.createElement("div");
     cardBody.setAttribute("class", "card-body d-flex flex-column justify-self-end");

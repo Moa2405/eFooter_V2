@@ -8,11 +8,11 @@ const handleSearch = (event) => {
 
     const products = localeStorage.getData(storageKeys.ALL_PRODUCTS_KEY);
 
-    const searchResult = products.filter((p) => p.attributes.name.trim().toLowerCase().includes(value));
+    const searchResult = products.filter((p) => p.attributes.title.trim().toLowerCase().includes(value));
 
     localeStorage.saveData(storageKeys.SEARCH_RESULT_KEY, searchResult);
 
-    window.location = "/products.html?search=true"
+    window.location = "/products.html?search=true";
 }
 
 export default handleSearch;

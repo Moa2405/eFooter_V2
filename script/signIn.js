@@ -48,6 +48,7 @@ const login = async (email, password) => {
             ".message-container"
         );
     } else {
+        console.log(loggedInUser);
         localStorage.saveData(storageKeys.TOKEN_KEY, loggedInUser.jwt);
         localStorage.saveData(storageKeys.USER_KEY, loggedInUser.user);
         window.location.href = "/";

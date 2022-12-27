@@ -33,8 +33,8 @@ const AdminAccordion = (products) => {
                     alt="No image on this product"`
 
             : `<img class="table__img rounded-circle" 
-                    src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
-                    alt="${product.attributes.name}" 
+                    src="${product.attributes.image.data.attributes.formats.thumbnail.url}" 
+                    alt="${product.attributes.image.data.attributes.formats.thumbnail.alternativeText}" 
                     width="50px" height="50px">`
 
         adminAccordionContainer.innerHTML += `
@@ -50,7 +50,7 @@ const AdminAccordion = (products) => {
 
                         <div class="accordion__btn-content container d-flex flex-column justify-content-between align-items-center pl-2 text-dark">                          
                             <div>Id: ${product.id}</div>
-                            <div class="accordion__item_name">${product.attributes.name}</div>
+                            <div class="accordion__item_name">${product.attributes.title}</div>
                             ${img}
                         </div>
                     </button>
@@ -58,7 +58,7 @@ const AdminAccordion = (products) => {
                 <div 
                     id="collapse${product.id}" 
                     class="accordion-collapse collapse" 
-                    aria-labelledby="heading${product.attributes.name}" 
+                    aria-labelledby="heading${product.attributes.title}" 
                     data-bs-parent="#accordionAdmin">
 
                     <div class="accordion-body d-flex flex-column gap-3">

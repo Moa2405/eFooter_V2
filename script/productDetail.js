@@ -17,9 +17,8 @@ const productDetail = async () => {
     try {
 
         const product = await fetchData(apiUrls.baseUrl + apiUrls.singleProductsUrl + productId + apiUrls.populateImgUrl);
-
+        console.log(product)
         document.querySelector("#meta").setAttribute("content", product.attributes.description);
-
         document.title = `${product.attributes.name} | eFooter`;
 
         ProductDetail(product);
@@ -33,8 +32,6 @@ const productDetail = async () => {
     } catch (error) {
         console.log(error)
     }
-
-
 }
 
 productDetail();

@@ -10,13 +10,11 @@ const form = document.querySelector("#form");
 Footer()
 NavBar()
 
-
 const adminFormDetail = async () => {
 
     const user = localeStorage.getData(storageKeys.USER_KEY);
 
     if (user.admin) {
-
         form.setAttribute("method", "post");
         form.setAttribute("action", `${apiUrls.baseUrl}${apiUrls.productsUrl}`);
         form.onsubmit = (event) => handleCrateProduct(event);

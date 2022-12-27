@@ -11,6 +11,7 @@ const cartProductContainer = document.querySelector(".cart__products_container")
 
 
 const CartProduct = (itemsInCart) => {
+    console.log(itemsInCart)
 
     cartProductContainer.innerHTML = "";
 
@@ -22,14 +23,14 @@ const CartProduct = (itemsInCart) => {
                 <li class="container mb-4 list-group-item px-0 d-flex gap-2 bg-transparent">
                     <div class="card bg-transparent shadow d-flex flex-column flex-sm-row align-items-sm-center">
                         <div class="cart__img_container">
-                            <img src="${apiUrls.baseUrl}${item.attributes.image.data.attributes.formats.small.url}"
-                                alt="${item.attributes.name}"
+                            <img src="${item.attributes.image.data.attributes.url}"
+                                alt="${item.attributes.image.data.attributes.alternativeText}"
                                 class="img-fluid rounded-start">
                         </div>
                         <div class="card-body py-sm-0 d-flex flex-column gap-3">
 
                             <div class="container">
-                                <h5 class="card-title my-2">${item.attributes.name}</h5>
+                                <h5 class="card-title my-2">${item.attributes.title}</h5>
                                 <p class="cart__product_description card-text my-2">${item.attributes.description}</p>
                             </div>
 

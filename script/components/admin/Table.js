@@ -1,5 +1,4 @@
 import handleDeleteProduct from "../../utils/eventListeners/handleDeleteProduct.js";
-import apiUrls from "../../utils/api/urls.js";
 import * as localeStorage from "../../storage/localStorage.js";
 import storageKeys from "../../storage/storageKeys.js";
 import moment from '/../../../node_modules/moment/dist/moment.js';
@@ -7,7 +6,6 @@ import moment from '/../../../node_modules/moment/dist/moment.js';
 const user = localeStorage.getData(storageKeys.USER_KEY);
 
 const AdminTable = async (products) => {
-
 
     const adminProducts = document.querySelector(".table-body");
     adminProducts.innerHTML = "";
@@ -34,14 +32,14 @@ const AdminTable = async (products) => {
                     width="32" height="32">`
 
             : `<img class="table__img rounded-circle" 
-                    src="${apiUrls.baseUrl}${product.attributes.image.data.attributes.formats.thumbnail.url}" 
-                    alt="${product.attributes.name}" 
+                    src="${product.attributes.image.data.attributes.formats.thumbnail.url}" 
+                    alt="${product.attributes.image.data.attributes.formats.thumbnail.alternativeText}" 
                     width="32" height="32">`
 
         adminProducts.innerHTML += `
             <tr>
                 <td scope="row">${product.id}</td>
-                <td>${product.attributes.name}</td>
+                <td>${product.attributes.title}</td>
                 <td>${moment(product.attributes.createdAt).format("LL")}</td>
                 <td class="table__description">${product.attributes.description}</td>
                 <td>

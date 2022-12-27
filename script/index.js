@@ -19,22 +19,28 @@ const app = async () => {
     spinner.classList.remove("d-none")
 
     const allProducts = await fetchData(apiUrls.baseUrl + apiUrls.productsUrl);
+    console.log(allProducts)
     const hero = await fetchData(apiUrls.baseUrl + apiUrls.heroSectionUrl);
-    const featuredProducts = await fetchDataByCategory(apiUrls.baseUrl + apiUrls.featuredUrl);
+    console.log(hero)
+    // const featuredProducts = await fetchDataByCategory(apiUrls.baseUrl + apiUrls.featuredUrl);
+
+    const featuredProducts = allProducts.filter((product) => product.attributes.Featured === true)
+    console.log(featuredProducts)
 
 
+    localeStorage.saveData(storageKeys.FEATURED_KEY, featuredProducts);
     localeStorage.saveData(storageKeys.ALL_PRODUCTS_KEY, allProducts);
     localeStorage.saveData(storageKeys.HERO_KEY, hero);
-    localeStorage.saveData(storageKeys.FEATURED_KEY, featuredProducts);
 
-    const heroData = localeStorage.getData(storageKeys.HERO_KEY)
+    const heroData = localeStorage.getData(storageKeys.HERO_KEY);
+    console.log(heroData)
+    const featuredData = localeStorage.getData(storageKeys.FEATURED_KEY);
+    console.log(featuredData)
 
-    const featuredData = localeStorage.getData(storageKeys.FEATURED_KEY)
+    spinner.classList.add("d-none");
 
-    spinner.classList.add("d-none")
-
-    Hero(heroData)
-    ProductCard(featuredData)
+    Hero(heroData);
+    ProductCard(featuredData);
 
     const favBtn = document.querySelectorAll(".favorites__btn");
     handleFavoritesBtn(favBtn);

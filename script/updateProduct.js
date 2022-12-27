@@ -26,7 +26,7 @@ const updateProduct = async () => {
         document.querySelector(".Update__created").textContent = "Created " + moment(productToPopulateForm[0].attributes.createdAt).format("LL");
 
         form.setAttribute("action", `${apiUrls.baseUrl}${apiUrls.productsUrl}/${productId}`);
-        form.querySelector("#name").value = `${productToPopulateForm[0].attributes.name}`;
+        form.querySelector("#name").value = `${productToPopulateForm[0].attributes.title}`;
         form.querySelector("#description").value = `${productToPopulateForm[0].attributes.description}`;
         form.querySelector("#price").value = `${productToPopulateForm[0].attributes.price}`;
 
@@ -34,39 +34,39 @@ const updateProduct = async () => {
 
         const headers = new Headers({ Authorization: `Bearer ${token}` });
 
-        const response = await fetch(apiUrls.uploadedMedia, headers);
+        // const response = await fetch(apiUrls.uploadedMedia, headers);
 
-        const result = await response.json();
+        // const result = await response.json();
 
-        result.forEach((i) => {
+        // result.forEach((i) => {
 
-            const formCheck = document.createElement("div");
-            formCheck.setAttribute("class", "form-check");
+        //     const formCheck = document.createElement("div");
+        //     formCheck.setAttribute("class", "form-check");
 
-            const input = document.createElement("input");
-            input.setAttribute("class", "form-check-input");
-            input.setAttribute("type", "radio");
-            input.setAttribute("id", i.id);
-            input.setAttribute("name", "image");
-            input.setAttribute("value", i.id);
+        //     const input = document.createElement("input");
+        //     input.setAttribute("class", "form-check-input");
+        //     input.setAttribute("type", "radio");
+        //     input.setAttribute("id", i.id);
+        //     input.setAttribute("name", "image");
+        //     input.setAttribute("value", i.id);
 
-            const label = document.createElement("label");
-            label.setAttribute("class", "form-check-label");
-            label.setAttribute("for", i.id);
+        //     const label = document.createElement("label");
+        //     label.setAttribute("class", "form-check-label");
+        //     label.setAttribute("for", i.id);
 
-            const img = document.createElement("img");
-            img.setAttribute("class", "img-thumbnail shadow");
-            img.setAttribute("src", i.formats ? apiUrls.baseUrl + i.formats.thumbnail.url : "#");
-            img.setAttribute("alt", i.name);
-            img.setAttribute("height", "100px");
-            img.setAttribute("width", "100px");
+        //     const img = document.createElement("img");
+        //     img.setAttribute("class", "img-thumbnail shadow");
+        //     img.setAttribute("src", i.formats ? i.formats.thumbnail.url : "#");
+        //     img.setAttribute("alt", i.title);
+        //     img.setAttribute("height", "100px");
+        //     img.setAttribute("width", "100px");
 
-            formCheck.appendChild(input);
-            label.appendChild(img);
-            formCheck.appendChild(label);
+        //     formCheck.appendChild(input);
+        //     label.appendChild(img);
+        //     formCheck.appendChild(label);
 
-            document.querySelector(".img-uploads").appendChild(formCheck);
-        })
+        //     document.querySelector(".img-uploads").appendChild(formCheck);
+        // })
 
         form.onsubmit = (event) => handleUpdateProduct(event, productId);
     } else {

@@ -27,7 +27,7 @@ const ProductDetail = (product) => {
 
     const img = document.createElement("img");
     img.setAttribute("class", "img-fluid");
-    img.setAttribute("src", `${apiUrls.baseUrl}${image}`);
+    img.setAttribute("src", `${image}`);
     img.setAttribute("alt", `${name}`);
     productDetailContainer.querySelector(".product-detail__img_container").appendChild(img);
 

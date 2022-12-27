@@ -41,7 +41,7 @@ const ProductCard = (products) => {
       cardFavBtn.setAttribute("type", "button");
 
       const cardImg = document.createElement("img");
-      cardImg.setAttribute("src", apiUrls.baseUrl + image);
+      cardImg.setAttribute("src", image);
       cardImg.setAttribute("loading", "lazy");
       cardImg.setAttribute("class", "card-img-top");
       cardImg.setAttribute("alt", name);
